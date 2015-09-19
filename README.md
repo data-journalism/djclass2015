@@ -12,6 +12,6 @@
 
 #注意事项
 
-不要提交word文档，以markdown文件提交，关于markdown的格式介绍见:
+不要提交word文档，以markdown文件提交，markdown文件的结尾是 `.md` 。关于markdown的格式介绍见:
 
 https://guides.github.com/features/mastering-markdown/
