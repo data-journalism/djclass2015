@@ -8,3 +8,10 @@
 
 #提交问题
 [https://github.com/data-journalism/djclass2015/issues](https://github.com/data-journalism/djclass2015/issues)
+
+
+#注意事项
+
+不要提交word文档，以markdown文件提交，关于markdown的格式介绍见:
+
+https://guides.github.com/features/mastering-markdown/
