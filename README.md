@@ -15,3 +15,8 @@
 不要提交word文档，以markdown文件提交，markdown文件的结尾是 `.md` 。关于markdown的格式介绍见:
 
 https://guides.github.com/features/mastering-markdown/
+
+#datajournalismhandbook
+[http://datajournalismhandbook.org/1.0/en/](http://datajournalismhandbook.org/1.0/en/)
+
+![](http://datajournalismhandbook.org/1.0/en/img/cover_print.png)
