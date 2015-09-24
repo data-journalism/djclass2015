@@ -6,6 +6,11 @@
 
 [https://github.com/data-journalism/djclass2015/wiki/%E4%BD%9C%E4%B8%9A](https://github.com/data-journalism/djclass2015/wiki/%E4%BD%9C%E4%B8%9A)
 
+
+#关于两次微议题、阅读+presentation、软件工具分享次序的安排
+
+[https://github.com/data-journalism/djclass2015/wiki/%E5%B0%8F%E7%BB%84%E4%BB%BB%E5%8A%A1%E6%8E%92%E5%BA%8F](https://github.com/data-journalism/djclass2015/wiki/%E5%B0%8F%E7%BB%84%E4%BB%BB%E5%8A%A1%E6%8E%92%E5%BA%8F)
+
 #提交问题
 [https://github.com/data-journalism/djclass2015/issues](https://github.com/data-journalism/djclass2015/issues)
 
