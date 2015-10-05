@@ -17,6 +17,12 @@ https://guides.github.com/features/mastering-markdown/
 [https://github.com/data-journalism/djclass2015/wiki/%E5%B0%8F%E7%BB%84%E4%BB%BB%E5%8A%A1%E6%8E%92%E5%BA%8F](https://github.com/data-journalism/djclass2015/wiki/%E5%B0%8F%E7%BB%84%E4%BB%BB%E5%8A%A1%E6%8E%92%E5%BA%8F)
 
 
+####中国数据新闻工作坊培训手册
+[网页] [http://djchina.org/2015/09/01/china-data-journalism-training-content/](http://djchina.org/2015/09/01/china-data-journalism-training-content/)
+
+[视频] [http://i.youku.com/u/UMzIwNzg5OTAyMA==/videos](http://i.youku.com/u/UMzIwNzg5OTAyMA==/videos)
+
+
 ####datajournalismhandbook
 [http://datajournalismhandbook.org/1.0/en/](http://datajournalismhandbook.org/1.0/en/)
 
