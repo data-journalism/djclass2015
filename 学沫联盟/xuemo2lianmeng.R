@@ -31,27 +31,26 @@ treasure[["types"]]
 
 ###########Expressions6.3############
 list.files()
-read.csv("targets.csv")
-read.table("infantry.txt", sep="\t")
-read.table("infantry.txt", sep="\t", header=TRUE)
+read.csv(file="/Users/wangqianqian/Desktop/djclass2015/学沫联盟/targets.csv")
+read.table(file="/Users/wangqianqian/Desktop/djclass2015/学沫联盟/infantry.txt", sep="\t")
+read.table(file="/Users/wangqianqian/Desktop/djclass2015/学沫联盟/infantry.txt", sep="\t", header=TRUE)
 
 ###########Expressions6.4############
-targets <- read.csv("targets.csv")
-infantry <- read.table("infantry.txt", sep="\t", header=TRUE)
+targets <- read.csv(file="/Users/wangqianqian/Desktop/djclass2015/学沫联盟/targets.csv")
+infantry <- read.table(file="/Users/wangqianqian/Desktop/djclass2015/学沫联盟/infantry.txt", sep="\t", header=TRUE)
 merge(x = targets, y = infantry)
 
 ###########chapter7############
 ###########Expressions7.1############
-piracy <- read.csv("piracy.csv")
-gdp <- read.table("gdp.txt", sep="  ", header=TRUE)
+piracy <- read.csv("/Users/wangqianqian/Downloads/piracy.csv")
+gdp <- read.table("/Users/wangqianqian/Downloads/gdp.txt", sep="  ", header=TRUE)
 countries <- merge(x = gdp, y = piracy)
 plot(countries$GDP, countries$Piracy)
 cor.test(countries$GDP, countries$Piracy)
 line <- lm(countries$Piracy ~ countries$GDP)
-abline(line)
+abline(line) 
 
 ###########Expressions7.2############
-install.packages("ggplot2")
 help(package = "ggplot2")
 weights <- c(300, 200, 100, 250, 150)
 prices <- c(9000, 5000, 12000, 7500, 18000)
@@ -59,3 +58,4 @@ chests <- c('gold', 'silver', 'gems', 'gold', 'gems')
 types <- factor(chests)
 library(ggplot2)
 qplot(weights,prices,color = types)
+
