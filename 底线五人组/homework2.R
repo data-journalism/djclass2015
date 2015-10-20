@@ -61,8 +61,9 @@ weights <- c(300, 200, 100, 250, 150)
 prices <- c(9000, 5000, 12000, 7500, 18000)
 chests <- c('gold', 'silver', 'gems', 'gold', 'gems')
 types <- factor(chests)
-#qplot(weights, prices, color = types)
-#安装过后指令无效#
+library(ggplot2)
+qplot(weights, prices, color = types)
+
 
 ########chapter8##########
 #第八章无练习#
