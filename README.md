@@ -2,7 +2,7 @@
 
 你好，这是南京大学新闻传播学院数据新闻2015课程的Github页面。
 
-#第二次作业信息发布
+#第三次作业信息发布
 
 [https://github.com/data-journalism/djclass2015/wiki/%E4%BD%9C%E4%B8%9A](https://github.com/data-journalism/djclass2015/wiki/%E4%BD%9C%E4%B8%9A)
 
