@@ -1,5 +1,5 @@
 # tryR
-# 学沫联盟
+# 我没说话
 # 20151006
 ###########chapter1############
 ###########Expressions1.1############
@@ -31,8 +31,6 @@ help(rep)
 
 ###########Expressions1.6############
 list.files()
-source("bottle1.R")
-source("bottle2.R")
 
 ###########chapter2############
 ###########Expressions2.1############
