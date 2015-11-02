@@ -2,7 +2,12 @@
 
 你好，这是南京大学新闻传播学院数据新闻2015课程的Github页面。
 
-#第二次作业信息发布
+#请选课的同学watch本页面
+点击页面右上角watch按钮即可，这样你可以收到最新的issues的邮件提醒。
+
+或者点击本链接：https://github.com/data-journalism/djclass2015/subscription
+
+#第四次作业信息发布
 
 [https://github.com/data-journalism/djclass2015/wiki/%E4%BD%9C%E4%B8%9A](https://github.com/data-journalism/djclass2015/wiki/%E4%BD%9C%E4%B8%9A)
 
