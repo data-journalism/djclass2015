@@ -22,6 +22,11 @@ https://guides.github.com/features/mastering-markdown/
 [https://github.com/data-journalism/djclass2015/wiki/%E5%B0%8F%E7%BB%84%E4%BB%BB%E5%8A%A1%E6%8E%92%E5%BA%8F](https://github.com/data-journalism/djclass2015/wiki/%E5%B0%8F%E7%BB%84%E4%BB%BB%E5%8A%A1%E6%8E%92%E5%BA%8F)
 
 
+#资源推荐
+
+####js入门 http://www.imooc.com/learn/36?from=itblog
+①.JavaScript入门与进阶:O网页链接、O网页链接 ②.DOM操作:O网页链接 ③.DOM事件:O网页链接 ④.JS动画:O网页链接 ⑤.JS实践之倒计时效果与信息滚动效果:O网页链接、O网页链接
+
 ####中国数据新闻工作坊培训手册
 [网页] [http://djchina.org/2015/09/01/china-data-journalism-training-content/](http://djchina.org/2015/09/01/china-data-journalism-training-content/)
 
