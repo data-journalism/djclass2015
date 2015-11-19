@@ -65,11 +65,8 @@ sqrt(a)
 x<-seq(1,20,0.1)
 y<-sin(x)
 plot(x,y)
-
 values<- -10:10
-
 absolutes<-abs(values)
-
 plot(values,absolutes)
 a <- c(1,3,NA,7,9)
 sum(a)
@@ -153,3 +150,23 @@ read.table("infantry.txt",sep="\t",header=TRUE)
 targets <- read.csv("targets.csv")
 infantry <- read.table("infantry.txt", sep="\t", header=TRUE)
 merge(x = targets, y = infantry)
+############chapter 7###########
+#start chapter 7
+piracy <- read.csv("piracy.csv")
+gdp <- read.table("gdp.txt", sep=",", header=TRUE)
+countries <- merge(x = gdp, y = piracy)
+plot(countries$GDP, countries$Piracy)
+cor.test(countries$GDP, countries$Piracy)
+line <- lm(countries$Piracy ~ countries$GDP)
+abline(line)
+#install.packages("ggplot2")
+help(package = "ggplot2")
+weights <- c(300, 200, 100, 250, 150)
+prices <- c(9000, 5000, 12000, 7500, 18000)
+chests <- c('gold', 'silver', 'gems', 'gold', 'gems')
+types <- factor(chests)
+#qplot(weights, prices, color = types)
+
+###########chapter 8 ###########
+#no more practice
+
