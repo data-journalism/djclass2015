@@ -7,7 +7,7 @@
 
 或者点击本链接：https://github.com/data-journalism/djclass2015/subscription
 
-#第四次作业信息发布
+#本周作业信息发布
 
 [https://github.com/data-journalism/djclass2015/wiki/%E4%BD%9C%E4%B8%9A](https://github.com/data-journalism/djclass2015/wiki/%E4%BD%9C%E4%B8%9A)
 
