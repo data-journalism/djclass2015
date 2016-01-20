@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+<style type="text/css">
+#header {
+	background-image: url(images/header.jpg);
+	height: 145px;
+	width: 1366px;
+}
+#content {
+	background-color: #C4f3ec;
+	width: 1366px;
+}
+#footer {
+	background-color: #3F3;
+	height: 50px;
+	width: 1366px;
+}
+#body table{
+	top: px;
+	width: px;
+	margin-top: px;
+	padding-top: px;
+}
+*{ margin:0; padding:0;}
+    #div1{ background:#000; width:500px; height:30px; position:relative;}
+    .a_1, .a_2{ position:absolute; top:0; height:30px;}
+    .a_1{ left:0; background:#0F6;}
+    .a_2{ right:0; background:#39C;}
+    input{ margin-top:px;}
+</style>
+</head>
+
+<body>
+ <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<header id="header">
+  <table width="900"  height="70"  border="1" align="right" style="float:right;margin-top:72px;margin-right:100px;">
+  <tr>
+    <td width="180"><a href="index.html"><img src="images/shouye.png" width="174" height="63"  alt=""/></a></td>
+    <td width="180"><a href="data.html"><img src="images/shuju.png" width="170" height="59"  alt=""/></a></td>
+    <td width="180"><a href="theme1.html"><img src="images/主题.png" width="170" height="59"  alt=""/></a></td>
+    <td width="180"><a href="about.html"><img src="images/guanyu.png" width="168" height="59"  alt=""/></a></td>
+    <td width="180"><a href="contact.html"><img src="images/lianxi.png" width="171" height="59"  alt=""/></a></td>
+  </tr>
+  </table>
+</header>
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;      &nbsp;        &nbsp;        &nbsp;      &nbsp;&nbsp;&nbsp;            &nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 二胎生还是不生？ </h1>
+<p>&nbsp;</p>
+<div id="video">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <video width="640" height="480" autoplay loop >
+    <source src="video/shouye.mp4" type="video/mp4">
+  </video>
+</div>
+<div id="zhongbu" style="font-size: 18px">
+&nbsp;&nbsp;&nbsp; 2016年全面放开二胎有了新消息，2015年12月27日全国人大常委会表决通过了人口与计划生育法修正案，全面二孩定于2016年1月1日起正式实施。这就意味着，2016年元旦以后出生的二孩，都是合法的。按修正案中规定，生育一孩或两孩的夫妻均可获得延长生育假的奖励。法律修改前按照规定应当享受扶助的失独家庭，将继续获得扶助。
+早前，党的十八届五中全会允许实行普遍二孩政策，政策规定：坚持计划生育的基本国策，完善人口发展战略，全面实施一对夫妇可生育两个孩子政策，积极开展应对人口老龄化行动。
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;据统计，“十二五”以来，我国总人口继续增长，2014年末达到13.68亿人，受人口年龄结构以及生育政策调整的影响，出生人口从2010年1592万人增加到2014年的1687万人，保持增长态势。与此同时，我国劳动年龄人口下降，老年人口不断上升。2011年，我国15岁至59岁劳动年龄人口达到峰值9.4亿后开始回落。2014年降至9.3亿。60岁及以上老年人口从2010年13.3%提高到2014年的15.5%，总量达到2.12亿人。 </div>
+<div id="line" style="height:400px"></div>
+<h3>如果是你，你会作何选择呢？请投下神圣的一票！ </h3>
+<div id="div1">
+  <div class="a_1"></div>
+        <div class="a_2"></div>
+    </div>
+    <input type="button" name="aa" value="必须生" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp; 
+    &nbsp;
+    <input type="button" name="aa" value="肯定不生" />
+<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        // 使用
+        require(
+            [
+                'echarts',
+				'echarts/chart/line',//使用折线图就加载line模块块
+            ],DrawEchats);
+			function DrawEchats(ec){
+				drawLine(ec);
+			}
+			function  drawLine(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('line')); 
+                
+                var option2 = {
+					title : {
+						text: '中国人口数据变化图（单位：万人）',
+						subtext: '数据来自国家统计局',
+					},
+					tooltip : {
+						trigger: 'axis'
+					},
+					legend: {
+						data:['总人口数','青少年人口数','劳动人口数','老年人口数']
+					},
+					toolbox: {
+						show : true,
+						feature : {
+							mark : {show: true},
+							dataView : {show: true, readOnly: false},
+							magicType : {show: true, type: ['line', 'bar']},
+							restore : {show: true},
+							saveAsImage : {show: true}
+						}
+					},
+					calculable : true,
+					xAxis : [
+						{
+							type : 'category',
+							boundaryGap : false,
+							data : ['2008年','2009年','2010年','2011年','2012年','2013年','2014年']
+						}
+					],
+					yAxis : [
+						{
+							type : 'value',
+							axisLabel : {
+								formatter: '{value} 万人'
+							}
+						}
+					],
+					series : [
+						{
+							name:'总人口数',
+							type:'line',
+							data:[132802, 133450, 134091, 134735, 135404, 136072, 136782],
+						},
+						{
+							name:'青少年人口数',
+							type:'line',
+							data:[25166, 24659, 22259,22164, 22287, 22329, 22558],
+						},
+						{
+							name:'劳动人口数',
+							type:'line',
+							data:[96680 ,97484, 99938,100283,100403,100582,100469],
+						},
+						{
+							name:'老年人口数',
+							type:'line',
+							data:[10956, 11307, 11894, 12289,12714, 13161, 13755],
+						}
+					]
+				};       
+                // 为echarts对象加载数据 
+                myChart.setOption(option2,true); 
+            }
+    </script>
+<script>
+    window.onload=function()
+    {
+            var oDiv=document.getElementById('div1');
+            var aDiv=oDiv.getElementsByTagName('div');
+            var aBtn=document.getElementsByTagName('input');
+            var lNum=50;  
+            var rNum=50;
+            var lNums=(rNum/(lNum+rNum))*500;
+            var rNums=500-lNums;
+            aDiv[1].style.width=parseInt(lNums)+'px';
+            aDiv[0].style.width=500-parseInt(lNums)+'px';
+            aDiv[0].innerHTML=(lNum/(lNum+rNum)).toFixed(2);
+            aDiv[1].innerHTML=(1-lNum/(lNum+rNum)).toFixed(2);
+                   
+            aBtn[0].onclick=function()
+            {
+                    lNum=lNum+1;
+                    var lNumss=parseInt(lNum/(lNum+rNum)*500);
+                    aDiv[0].style.width=lNumss+'px';
+                    aDiv[1].style.width=(500-lNumss)+'px';
+                    aDiv[0].innerHTML=(lNum/(lNum+rNum)).toFixed(2);
+                    aDiv[1].innerHTML=(1-lNum/(lNum+rNum)).toFixed(2);
+            }
+            aBtn[1].onclick=function()
+            {
+                    rNum=rNum+1;
+                    var rNumss=parseInt(rNum/(lNum+rNum)*500);
+                    aDiv[0].style.width=(500-rNumss)+'px';
+                    aDiv[1].style.width=rNumss+'px';
+                    aDiv[0].innerHTML=(lNum/(lNum+rNum)).toFixed(2);
+                    aDiv[1].innerHTML=(1-lNum/(lNum+rNum)).toFixed(2);
+            }
+    }
+    </script>
+</div>
+<footer id="footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="about.html">我们是逼格小分队</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright &copy; 2016<br>
+</footer>
+</body>
+</html>
