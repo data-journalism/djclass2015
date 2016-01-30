@@ -63,6 +63,9 @@ Or the Youtube playlist: https://www.youtube.com/playlist?list=PLAwxTw4SYaPmtf5v
 
 [视频] [http://i.youku.com/u/UMzIwNzg5OTAyMA==/videos](http://i.youku.com/u/UMzIwNzg5OTAyMA==/videos)
 
+# Doing Journalism with Data: First Steps, Skills and Tools 
+by Paul Bradshaw, Alberto Cairo, Steve Doig, Simon Rogers, Nicolas Kayser-Bril http://learno.net/classroom/doing-journalism-with-data-first-steps-skills-and-tools/
+
 
 ####datajournalismhandbook
 [http://datajournalismhandbook.org/1.0/en/](http://datajournalismhandbook.org/1.0/en/)
