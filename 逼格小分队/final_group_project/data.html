@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>数据</title>
+<style type="text/css">
+#header {
+	background-image: url(images/header.jpg);
+	height: 145px;
+	width: 1366px;
+}
+#content {
+	background-color: #C4f3ec;
+}
+#footer {
+	background-color: #3F3;
+	height: 50px;
+	width: 1366px;
+}
+#body table{
+	top: px;
+	width: px;
+	margin-top: px;
+	padding-top: px;
+}
+h2 {
+	color: #FF0000;
+}
+</style>
+</head>
+
+<body>
+<header id="header">
+  <table width="900"  height="70"  border="1" align="right" style="float:right;margin-top:72px;margin-right:100px;">
+  <tr>
+    <td width="180"><a href="index.html"><img src="images/shouye.png" width="174" height="63"  alt=""/></a></td>
+    <td width="180"><a href="data.html"><img src="images/shuju.png" width="170" height="59"  alt=""/></a></td>
+    <td width="180"><a href="theme1.html"><img src="images/主题.png" width="170" height="59"  alt=""/></a></td>
+    <td width="180"><a href="about.html"><img src="images/guanyu.png" width="168" height="59"  alt=""/></a></td>
+    <td width="180"><a href="contact.html"><img src="images/lianxi.png" width="171" height="59"  alt=""/></a></td>
+  </tr>
+  </table>
+</header>
+<div id="content">
+<h1>数据</h1>
+<hr noshade>
+<h2>数据由来</h2>
+<ul>
+  <li><a href="http://www.stats.gov.cn/tjsj/">中华人民共和国国家统计局</a></li>
+  <li><a href="http://data.worldbank.org.cn/">世界银行</a></li>
+  <li><a href="http://www.china.com.cn/economic/zhuanti/07tjsj/node_7027698.htm">财经中心（中国统计数据）</a></li>
+  <li><a href="http://tongji.cnki.net/kns55/index.aspx">中国经济与社会发展统计数据库</a></li>
+</ul>
+<hr align="left">
+<h2>数据挖掘</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 数据挖掘（英语：Data mining），又译为资料探勘、数据采矿。它是数据库知识发现（英语：Knowledge-Discovery in Databases，简称：KDD)中的一个步骤。数据挖掘一般是指从大量的数据中通过算法搜索隐藏于其中信息的过程。数据挖掘通常与计算机科学有关，并通过统计、在线分析处理、情报检索、机器学习、专家系统（依靠过去的经验法则）和模式识别等诸多方法来实现上述目标。</p>
+<p><img src="images/data_mining.jpg" width="400" height="285"  alt=""/><img src="images/data_mining2.jpg" width="564" height="290"  alt=""/></p>
+<hr align="left">
+<h2>数据可视化</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。它是一个处于不断演变之中的概念，其边界在不断地扩大。主要指的是技术上较为高级的技术方法，而这些技术方法允许利用图形、图像处理、计算机视觉以及用户界面，通过表达、建模以及对立体、表面、属性以及动画的显示，对数据加以可视化解释。与立体建模之类的特殊技术方法相比，数据可视化所涵盖的技术方法要广泛得多。我们通过Echarts折线图、散点图、柱状图等多种图表格式将数据进行可视化表示。</p>
+ <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="bar" style="height:400px"></div>
+	<div id="line" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+				'echarts/chart/line',//使用折线图就加载line模块
+				'echarts/chart/pie',//使用面饼就加载pie模块
+				'echarts/chart/radar',//使用雷达图就加载radar模块
+				'echarts/chart/map',//使用地图就加载map模块
+            ],DrawEchats);
+			function DrawEchats(ec){
+				drawBar(ec);
+				drawLine(ec);
+			}
+            function  drawBar(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar')); 
+                
+                var option = {
+					title : {
+						text: '中华人民共和国男女人口总数',
+						subtext: '数据来自国家统计局',
+					},
+					tooltip : {
+						trigger: 'axis'
+					},
+					legend: {
+						data:['男性','女性']
+					},
+					toolbox: {
+						show : true,
+						feature : {
+							mark : {show: true},
+							dataView : {show: true, readOnly: false},
+							magicType : {show: true, type: ['line', 'bar']},
+							restore : {show: true},
+							saveAsImage : {show: true}
+						}
+					},
+					calculable : true,
+					xAxis : [
+						{
+							type : 'category',
+							data : ['2005','2006','2007','2008','2009','2010','2011','2012','2013','2014']
+						}
+					],
+					yAxis : [
+						{
+							type : 'value'
+						}
+					],
+					series : [
+						{
+							name:'男性',
+							type:'bar',
+							data:[67375, 67728, 68048, 68357, 68648, 68748, 69068, 69395, 69728, 70079],
+							markPoint : {
+								data : [
+									{type : 'max', name: '最大值'},
+									{type : 'min', name: '最小值'}
+								]
+							},
+						},
+						{
+							name:'女性',
+							type:'bar',
+							data:[63381, 63720, 64081, 64445, 64803, 65343, 65667, 66009, 66344, 66703,],
+							markPoint : {
+								data : [
+									{type : 'max', name: '最大值'},
+									{type : 'min', name: '最小值'}
+								]
+							},
+						}
+					]
+				};
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option,true); 
+            }
+			function  drawLine(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('line')); 
+                
+                var option2 = {
+					title : {
+						text: '未来一周南京气温变化',
+						subtext: '数据来自中国气象局',
+					},
+					tooltip : {
+						trigger: 'axis'
+					},
+					legend: {
+						data:['最高气温','最低气温']
+					},
+					toolbox: {
+						show : true,
+						feature : {
+							mark : {show: true},
+							dataView : {show: true, readOnly: false},
+							magicType : {show: true, type: ['line', 'bar']},
+							restore : {show: true},
+							saveAsImage : {show: true}
+						}
+					},
+					calculable : true,
+					xAxis : [
+						{
+							type : 'category',
+							boundaryGap : false,
+							data : ['周一','周二','周三','周四','周五','周六','周日']
+						}
+					],
+					yAxis : [
+						{
+							type : 'value',
+							axisLabel : {
+								formatter: '{value} °C'
+							}
+						}
+					],
+					series : [
+						{
+							name:'最高气温',
+							type:'line',
+							data:[9, 9, 7, 10, 9, 5, 8],
+							markPoint : {
+								data : [
+									{type : 'max', name: '最大值'},
+									{type : 'min', name: '最小值'}
+								]
+							},
+							markLine : {
+								data : [
+									{type : 'average', name: '平均值'}
+								]
+							}
+						},
+						{
+							name:'最低气温',
+							type:'line',
+							data:[2, 3, 4, 8, 4, -2, 0],
+							markPoint : {
+								data : [
+									{name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+								]
+							},
+							markLine : {
+								data : [
+									{type : 'average', name : '平均值'}
+								]
+							}
+						}
+					]
+				};       
+                // 为echarts对象加载数据 
+                myChart.setOption(option2,true); 
+            }
+    </script>
+<hr>
+<p>本页最新更新时间：
+  <!-- #BeginDate format:Ch2 -->2016年1月20日 <!-- #EndDate -->
+</p>
+</div>
+<footer id="footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="about.html">我们是逼格小分队</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright &copy; 2016<br>
+</footer>
+</body>
+</html>
