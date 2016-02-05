@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大期末</title>
+	<script src="echarts.min.js"></script>
+	<script src="china.js"></script>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			width: 640px;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+		.desc{
+			padding: 20px 0;
+			font-size: 14px;
+			color: #333;
+			text-indent: 2em;
+			line-height: 150%
+		}
+		hr{
+			width: 100%;
+			height: 1px;
+			border: 0;
+			padding: 0;
+			margin: 10px 0;
+			background: #666;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<h1>2015年Q3第三方支付市场分析报告</h1>
+		<div class="desc">
+    <p>近几年，互联网金融的快速崛起，使得低成本支付模式在金融市场掀起了巨浪，第三方支付机构的支付业务规模获得了快速增长，其简单便捷的支付模式越来越受到用户的青睐。八仙过海各显神通，在发展的浪潮中，不少第三方支付企业已经在支付的大市场走出自己的特色，其中以支付宝和微信支付的发展最为迅速，所占市场份额最大。伴随我国电子商务环境的不断优越，支付场景的不断丰富，以及金融创新的活跃，第三方支付的市场规模还将会进一步扩大，甚至将会颠覆整个金融支付行业。</p>
+		</div>
+		<div id="chart_1" style="width:100%;height:400px;"></div>
+		<div class="desc">
+		<p>从2013Q1到2015Q3，第三方支付的交易规模呈爆发式的增长，2015年第三季度交易规模已经达到了9万亿，是2013年第一季度的三倍。依托于互联网市场经济逐渐成熟以及移动互联时代崛起的大背景，第三方支付的市场规模正快速扩张，各支付平台特有的简单、快捷、安全的支付特点使其越来越受到用户的欢迎，在今年第三季度已经达到9万亿的交易规模，增长幅度相当惊人。预测第三方支付市场在经历蓬勃发展时期之后，在现有的格局下整个行业都将进入较长时间的稳定增长时期。</p>
+		</div>
+		<hr>
+		<div id="chart_2" style="width:100%;height:500px;"></div>
+		<div class="desc">
+			<p>2015年第三季度的支付交易结构中，线下收单业务的交易规模占比最高，为47.1%，但其占比相较之前继续减少，显然线下收单的传统支付方式正逐步被网络支付所代替;互联网支付的占比进一步扩大至33.6%，但是增幅较小; 最大的亮点来自于移动支付，占比暴增至18.8%。自2013年以来，各季度移动支付的市场规模一直呈爆发式的高速增长，今年第三季度的占比已经接近20%，增长相当明显。</p>
+			<p>随着互联网经济市场的逐步成熟，O2O商业模式逐渐步入正规，移动互联网的普及，使得移动支付这种模式越来越受到用户接受，和其他支付模式相比，其特有的便捷性将会使其迅速占领第三方支付市场。随着未来移动支付技术的更加成熟，以及更多金融监管制度的实行和政府部门的严格监督，移动支付将会越来越安全和正规，市场规模也将会进一步扩大。</p>
+		</div>
+		<hr>
+		<div id="chart_3" style="width:100%;height:400px;"></div>
+		<div class="desc">
+		<p>2015年Q3第三方支付平台中，支付宝以61.9%的比例占据大部分支付市场，遥遥领先于其他平台。财付通市场份额仅次于支付宝，排在第二位，占比14.5%，微信支付、QQ钱包两种新支付入口的快速发展使其市场占比进一步扩大。受支付宝和财付通的冲击，银联在线的市场份额继续减少，占比9.2%，排在第三位。值得一提的是，百度钱包的市场份额增幅较大，占比2.3%，依赖于糯米O2O平台生存的百度钱包，糯米的快速发展以及其“万家让利”的推出使其占据部分市场份额。</p>
+　　<p>以支付宝和财付通为首的拥有互联网巨头背景的第三方支付公司，无论从交易规模、创新支付模式，还是支付场景和基于支付数据的增值服务等方面，都给支付市场带来一次重大金融革新。以支付宝为例，伴随国内O2O和移动支付的快速发展，线下商家已经有超过30万家店铺支持支付宝付款，在这股影响力的持续强化下，支付宝与商家的合作形式逐渐深化，接入支付宝的连锁商家的数量还将持续高速增长，支付宝势必会带来一次金融支付市场的重大革新。</p>
+		</div>
+		<hr>
+		<div id="chart_4" style="width:100%;height:400px;"></div>
+		<div class="desc">
+			<p>2015年第三季度中国网民经常使用的支付方式中，第三方移动支付和第三方互联网支付占比分别排在第一、二位，为27.1%和25.4%，进一步显示出第三方支付将会越来越受到市场欢迎的发展趋势。网上银行占比18.3%，手机银行占比15.8%，分别位列第三、四位。预付卡支付占比最小，为4.1%。</p>
+	　　<p>本季度支付方式统计最大的亮点是第三方移动支付的市场份额首次超过互联网支付，说明移动支付正呈爆发式的高速增长，其深层原因是在移动互联网崛起的背景下，移动消费正成为网络消费的主流，更加便捷的移动支付随之高速发展，其中以支付宝和微信支付的发展最为迅速，所占市场份额也最大。</p>
+	　　<p>无论是支付宝钱包还是作为财付通强大入口的微信支付，都大大便利了用户的购买流程，用户在门店购物结账时，收银条码枪扫一下支付宝或者微信付款码，用户就完成了付款，和现金支付相比，支付宝钱包付款无需找零，更加简单方便。支付宝和微信支付如今小到早餐店，大到大商场，遍及地方非常广，可以说有条码枪的地方都能使用，非常方便。移动支付的王国如今在慢慢的壮大，甚至在不久的将来颠覆整个支付系统。</p>
+		</div>
+		<hr>
+		<div id="chart_5" style="width:100%;height:400px;"></div>
+		<div class="desc">
+		<p>第三方网络支付的用户职业调查中，不论移动支付还是互联网支付，上班族都是占比最高的群体，其中移动支付占比比互联网支付高一些。学生党的支付占比仅次于上班族，排在第二位，学生党是网络消费的重要组成部分，但由于经济条件的限制，占比远远低于走在网络消费最前沿的上班族。自由职业者和个体经营者的占比相差无几，分列三、四位。移动支付与互联网支付占比相当，说明我国整体网民正在放弃传统的互联网支付，进而养成使用移动支付的新习惯。</p>
+		</div>
+		<hr>
+		<div id="chart_6" style="width:100%;height:400px;"></div>
+		<div class="desc">
+		<p>从支付总额来看，“土豪五省”广东、浙江、江苏、上海和北京的支付总额依旧占据前五。但从支付总额的同比增速来看，河南、山东、湖北、四川、福建等中西部省份甚至赶超北上广深。</p>
+		</div>
+		<hr>
+		<div id="chart_7" style="width:100%;height:400px;"></div>
+		<div class="desc">
+		<p>支付宝城市排名，杭州、上海、金华、温州、北京、南京、嘉兴、宁波、湖州和厦门为人均支付金额最多的十大市。全国范围来看，2015年人均支付百强县主要集中在江浙闽三省，其中浙江有33个，江苏24个、福建16个。</p>
+		<p>2015年第三季度最大的亮点在于移动支付市场的快速增长，在网民支付方式中已经超过互联网支付，成为市场份额最大的支付方式，而移动支付市场的快速增长的原因总结起来有三点：</p>
+		<p>第一，移动互联网快速崛起的大背景下，O2O商业模式高速发展，互联网市场逐渐成熟，导致移动消费的比重日益增加，这样使得具有便捷性的移动支付模式越来越受到用户接受，用户上网消费习惯的迁徙是其快速发展的第一点原因。</p>
+		<p>第二，各种支付场景的拓展使得移动支付成为网民继银行卡、现金外习惯使用的支付工具，小到早餐店，大到大商场，有条码枪的地方都能使用，移动支付已经更多的融入生活，成为生活中一种不可缺少的基本工具。</p>
+		<p>第三，货币基金产品的规模化和资金管理工具的正规化使得互联网金融产品逐渐走向成熟，带动了大量移动支付用户黏性的增长。值得一提的是，支付宝最近推出的朋友圈功能，就是在金融支付的基础上加入社交属性，用来增加用户的粘性，将会进一步加强移动支付与生活的联系。</p>
+		<p>分析师团队预测，未来移动支付的比重还将进一步扩大，移动支付在与社交、搜索紧密结合之后，将会更多呈现出小额高频的支付特点，移动支付越来越成为继现金、银行卡外重要的支付组成部分。在不久的将来，第三方支付市场将迎来一次洗牌期，经历市场残酷的洗礼，最后只会剩几家各自霸占一方市场的支付平台。支付宝和微信支付这样优秀的支付工具将会进一步增加用户的粘性，成为我们日常生活密不可分的基本工具。</p>
+		</div>
+		<script>
+	var options = {
+		chart_1 : {
+			title: {
+				text: '2013Q1-2015Q3中国第三方支付交易规模',
+				x:'center'
+			},
+			tooltip : {
+		        trigger: 'axis',
+		        formatter: "{a} <br/>{b}: {c}万亿",
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ['2013Q1','2013Q2','2013Q3','2013Q4','2014Q1','2014Q2','2014Q3','2014Q4','2015Q1','2015Q2','2015Q3']
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value',
+		            name : '万亿',
+		            min: 0,
+		            max: 10,
+		            interval: 1,
+		            axisLabel : {
+		                formatter: '{value}万亿'
+		            }
+		        }
+		    ],
+		    series: [{
+                name: '交易额',
+                type: 'bar',
+                data: [3.3, 3.9, 4.3, 4.7, 5.3, 6.1,6.5,6.9,7.6,8.3,9]
+            }]
+		},
+		chart_2: {
+			title: {
+				text: '2013Q1-2015Q3中国第三方支付交易结构',
+				x:'center'
+			},
+			legend: {
+				padding:[50,0,0,0],
+		        data:['线下收单', '互联网支付','移动支付','预付卡']
+		    },
+			tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        top: '20%',
+		        containLabel: true
+		    },
+		    yAxis : [
+		        {
+		            type : 'value',
+		            name : '百分比',
+		            min: 0,
+		            max: 100,
+		            interval: 10,
+		            axisLabel : {
+		                formatter: '{value}%'
+		            }
+		        }
+		    ],
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ['2013Q1','2013Q2','2013Q3','2013Q4','2014Q1','2014Q2','2014Q3','2014Q4','2015Q1','2015Q2','2015Q3']
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'线下收单',
+		            type:'bar',
+		            stack: '总量',
+		            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+		            data:[61.6, 59.5,56.4,54.3,52.9,51.3,49.8,48.4,47.1]
+		        },
+		        {
+		            name:'互联网支付',
+		            type:'bar',
+		            stack: '总量',
+		            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+		            data:[30.9, 31.2, 31.7, 31.9, 32.6, 32.7, 33.0,33.5,33.6]
+		        },
+		        {
+		            name:'移动支付',
+		            type:'bar',
+		            stack: '总量',
+		            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+		            data:[7.2, 7.4, 10.9, 12.8, 13.7, 15.2, 16.6,17.5,18.8]
+		        },
+		        {
+		            name:'预付卡',
+		            type:'bar',
+		            stack: '总量',
+		            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+		            data:[0.3, 1.9, 1, 1.1, 0.8, 0.8, 0.6,0.6,0.5]
+		        }
+		    ]
+		},
+		chart_3: {
+			title: {
+				text: '2015Q3中国第三方支付平台所占市场份额',
+				x:'center'
+			},
+			tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {d}%"
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        left: 'right',
+		        top: '20%',
+		        data: ['支付宝','财付通','银联在线','快钱','百度钱包','易宝支付','PayPal','翼支付','汇付天下']
+		    },
+		    calculable : true,
+		    series : [
+		        {
+		            name: '支付平台',
+		            type: 'pie',
+		            radius : '70%',
+		            center: ['50%', '60%'],
+		            data:[
+		                {value:61.9, name:'支付宝'},
+		                {value:14.5, name:'财付通'},
+		                {value:9.2, name:'银联在线'},
+		                {value:5.1, name:'快钱'},
+		                {value:2.3, name:'百度钱包'},
+		                {value:1.9, name:'易宝支付'},
+		                {value:1.4, name:'PayPal'},
+		                {value:1.3, name:'翼支付'},
+		                {value:1.2, name:'汇付天下'}
+		            ],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		},
+		chart_4 : {
+			title: {
+				text: '2015Q3中国网民使用的支付方式占比',
+				x:'center'
+			},
+			tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {d}%"
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        left: 'right',
+		        top: '20%',
+		        data: ['第三方移动支付','第三方互联网支付','网上银行','手机银行','POS机支付','预付卡支付']
+		    },
+		    calculable : true,
+		    series : [
+		        {
+		            name: '支付平台',
+		            type: 'pie',
+		            radius : '70%',
+		            center: ['50%', '60%'],
+		            data:[
+		                {value:27.1, name:'第三方移动支付'},
+		                {value:25.4, name:'第三方互联网支付'},
+		                {value:18.3, name:'网上银行'},
+		                {value:15.8, name:'手机银行'},
+		                {value:9.3, name:'POS机支付'},
+		                {value:4.1, name:'预付卡支付'}
+		            ],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		},
+		chart_5 : {
+			title: {
+				text: '2013Q1-2015Q3中国第三方支付交易结构',
+				x:'center'
+			},
+			legend: {
+				padding : [50,0,0,0],
+		        data:[ '移动支付','互联网支付']
+		    },
+			tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '10%',
+		        bottom: '3%',
+		        top: '20%',
+		        containLabel: true
+		    },
+		    yAxis : [
+		        {
+		            type : 'category',
+		            data : ["其他", "个体经营者", "自由职业者", "学生党", "上班族"]
+		        }
+		    ],
+		    xAxis : [
+		    	{
+		            type : 'value',
+		            name : '百分比',
+		            min: 0,
+		            max: 80,
+		            interval: 10,
+		            axisLabel : {
+		                formatter: '{value}%'
+		            }
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'移动支付',
+		            type:'bar',
+		            data:[0.1, 4.5, 7, 18.5, 69.9]
+		        },
+		        {
+		            name:'互联网支付',
+		            type:'bar',
+		            data:[0.5, 4.5, 7.9, 20.4, 66.7]
+		        }
+		    ]
+		},
+		chart_6 : {
+			title : {
+		        text: '支付金额全国各省市排名',
+		        left: 'center'
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} :{c}%"
+		    },
+		    visualMap: {
+		        min: 0,
+		        max: 16.43,
+		        left: 'left',
+		        top: 'bottom',
+		        text:['高','低'],           // 文本，默认为数值文本
+		        calculable : true
+		    },
+		    series : [
+		        {
+		            name: '各省市排名',
+		            type: 'map',
+		            mapType: 'china',
+		            roam: false,
+		            itemStyle:{
+		                normal:{label:{show:true}},
+		                emphasis:{label:{show:true}}
+		            },
+		            data:[
+		                {name: '广东',value: 16.43 },
+		                {name: '浙江',value: 12.97 },
+		                {name: '江苏',value: 9.25 },
+		                {name: '上海',value: 7.51 },
+		                {name: '北京',value: 7.04 },
+		                {name: '山东',value: 5.37 },
+		                {name: '福建',value: 4.79 },
+		                {name: '河南',value: 3.81 },
+		                {name: '四川',value: 3.64 },
+		                {name: '湖北',value: 3.61 }
+		            ]
+		        }
+		    ]
+		},
+		chart_7 : {
+			title: {
+				text: '支付宝人均支付城市排名',
+				x:'center'
+			},
+			tooltip : {
+		        trigger: 'axis',
+		        formatter: "{a} <br/>{b}: {c}万元",
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ['杭州','上海','金华','温州','北京','南京','嘉兴','宁波','湖州','厦门']
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value',
+		            name : '万元',
+		            min: 0,
+		            max: 14,
+		            interval: 2,
+		            axisLabel : {
+		                formatter: '{value}万元'
+		            }
+		        }
+		    ],
+		    series: [{
+                name: '交易额',
+                type: 'bar',
+                data: [13.3, 10.4, 10.1, 9.16, 8.65, 8.01,7.76,7.56,7.35,7.33]
+            }]
+		}
+	};
+	echarts.registerMap('china', chinamap );
+	echarts.init(document.getElementById('chart_1')).setOption(options.chart_1);
+	echarts.init(document.getElementById('chart_2')).setOption(options.chart_2);
+	echarts.init(document.getElementById('chart_3')).setOption(options.chart_3);
+	echarts.init(document.getElementById('chart_4')).setOption(options.chart_4);
+	echarts.init(document.getElementById('chart_5')).setOption(options.chart_5);
+	echarts.init(document.getElementById('chart_6')).setOption(options.chart_6);
+	echarts.init(document.getElementById('chart_7')).setOption(options.chart_7);
+</script>
+</html>
