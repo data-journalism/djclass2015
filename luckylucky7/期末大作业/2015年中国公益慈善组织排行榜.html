@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link href="2015年中国公益慈善组织排行榜.css" rel="stylesheet" type="text/css"/>
+    <title>ECharts</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div class="main-top">
+        	<div class="top-title">
+            	<span>2015年中国公益慈善项目排行榜</span>
+                <p>数据更新时间：2016-02-04</p>
+                <div class="top-word">
+                	<p><span>引言</span>：在我国，乐善好施作为一种社会行为，有着几千年的历史。但将善举作为一项事业来规范、发展，还是建国以后，尤其是改革开放以来近几十年的事情。在现代社会中，慈善机构是参与公共事务的一支重要力量，它的存在，一可以为政府分忧，二可以为百姓解难。在扶贫、帮困、赈灾、助残等方面，既能起到调节社会关系、促进社会稳定的补充作用，有人说，2015年对中国公益慈善事业来说是多事之秋，希望与哀伤、发展与阵痛交织在一起，那么各省之间的排行、组织分布类型、项目领域的数量会是如何呢？
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="title">各省地域捐助分布</div>
+        <div id="map" style="height:400px">  </div>
+        <div class="one-word">
+        	从2015年各省份捐赠分布来看，广东省为第一大来源地，江苏北京、上海、浙江则依序列其位。捐赠量最大的几个省市，均位于是我国经济最为发达地区。总体来看，我国慈善捐赠与经济水平相关性很大，沿海发达地区捐赠量大，西部地区捐赠量较少。经济发展状况对慈善捐赠水平有着最直接的影响。中民慈善捐助信息中心统计结果显示，广东、北京、上海、江苏、浙江、山东等经济相对发达省市的捐赠总额排在全国前列；而海南、宁夏、青海、西藏等西部经济欠发达地区捐赠总量低于国内其他省市区。历年来，各类企业一直是我国慈善捐赠的主力，而企业捐赠量的比例，逐年提升，占了整个社会接收捐赠总量的近<span>七成</span>。
+        </div>
+        <hr/>
+        <div class="title">捐款去向行业分布</div>
+        <div id="treemap" style="height:400px">  </div>
+        <div class="two-word">
+        	2015年大额捐赠主要的资助领域集中在人类服务、高等教育、生态环境保护、中小学等基础教育投入、扶贫等方面。其中,约有<span>61.72</span>亿元善            款投入高等教育领域,用于高校建设、奖学金、助学金等项目,占捐赠总额的<span>48.17%</span>。我国慈善捐赠有很强的扶贫济困色彩。从广义            来看，医疗、教育、扶贫发展都带有扶贫济困的内容，这三大领域一直是我国慈善捐赠的重点领域。
+            今年，人类服务领域成为我国慈善捐赠的重点领域，超过去年的第一：教育领域，一跃成为我国慈善捐赠的榜首，平均份额<span>30%</span>左右，高于扶            贫与发展、教育、医疗健康等领域。教育领域捐赠分布差异大。扶贫与发展领域是政府大力提倡的慈善捐赠领域，是众多企事业单位            捐赠重点领域，而且在今后一段时期内得到越来越多的重视。得益于环境问题越来越受到公众的关注，环境保护领域捐赠近两年开始            提升。2015年生态环境领域的捐赠较13年就有所回升。
+        </div>
+        <hr/>
+        <div class="title">捐款主要捐收机构</div>
+        <div id="pie" style="height:400px">  </div>
+        <div class="two-word">
+        	对于这些大额公益捐赠的去向和用途,榜单显示,在境内机构部分,基金会整体接收捐赠金额占比<span>80.9%</span>,其次位社会团体、民办非企业、            事业单位。从各自捐赠特点来看，国有企业履行社会责任与国家政策密切相关，更加注重扶贫开发、教育、环保等传统慈善领域。民            营企业以教育、人群服务为主，民营企业和企业家更倾向于捐赠各类高校，将培养人才作为其回馈社会的重要方式。外资企业以捐赠            产品和捐赠物资为主，其中科技产品和药品占据了很大份额。
+        </div>
+        <hr/>
+        <div class="title">组织捐款收入金额趋势</div>
+        <div id="bar1" style="height:400px">  </div>
+        <div class="two-word">
+        	图表中看出整体收支平衡，下半年呈现下降趋势。
+        </div>
+        <hr/>
+        <div class="title">捐赠者行业分布</div>
+        <div id="bar2" style="height:400px">  </div>
+        <div class="two-word">
+        	历年来，各类企业一直是我国慈善捐赠的主力，而企业捐赠量的比例，逐年提升，占了整个社会接收捐赠总量的近七成。从各自捐赠            特点来看，国有企业履行社会责任与国家政策密切相关，更加注重扶贫开发、教育、环保等传统慈善领域。民营企业以教育、人群服            务为主，民营企业和企业家更倾向于捐赠各类高校，将培养人才作为其回馈社会的重要方式。外资企业以捐赠产品和捐赠物资为主，            其中科技产品和药品占据了很大份额。不同行业企业因其行业属性、经营范围不同，慈善行为与捐赠特点各不相同。2015年，制造业            、房地产业、互联网三个行业企业捐赠量占到企业捐赠总量的占领绝对地位。
+我国网民规模已经突破<span>6.68</span>亿，其中<span>88.9%</span>通过手机上网。互联网是一种技术手段，利用这种技术手段开发出来的方便快捷、易于传播、互动性强、安全可靠、体验性好的劝募工具和捐赠模式，是当下互联网辅助公益慈善的主要方式。其内在的核心在于如何与劝募对象在碎片化的交流中迅速建立起信任，获得情感认同并创造良好的参与体验，并培养捐赠人良好的捐赠习惯。
+互联网+公益产品百万量级以上，公益行业只有几家大型互联网企业的网络募捐平台。现有的网络捐赠平台只是互联网社交和互联网支付的延伸，并不是公益为核心的互联网产品。那么互联网+公益，到底应该产出什么东西呢？
+互联网与公益融合远远不止互联网捐赠平台一点，互联网是手段，公益是理念，真正的需求在生活的方方面面。互联网与公益结合是需要用互联网的大数据，扁平化，实时接入，物联网等技术创新，创造出融合了公益理念的新的生活方式。比如穿戴设备+运动APP+运动筹款；比如拼车软件+拼车行为+共享理念；都是在互联网的支撑下，创造出更加有趣，实惠，健康，环保的生活方式，酝酿出更多元，平等，互助互爱的人际关系，这才是互联网+公益的真谛所在。公益应该借用互联网无线渗透和改变思维的力量，将生活的每一个细节，都装饰上公益的元素。
+
+        </div>
+        <hr/>
+		<div class="main-bottom">
+        	<p>小组：luckylucky7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 小组成员：陈天琦，潘虹，邓照元</p>
+        </div>
+    
+    <!-- ECharts单文件引入 -->
+    
+    <script src="http://echarts.baidu.com/build/dist/echarts.js">   </script>
+    <script type="text/javascript">
+        
+      
+       // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        // 使用
+        require(
+            [
+                'echarts',
+                                'echarts/chart/map', // 使用地图就加载map模块，按需加载
+                                'echarts/chart/treemap', // 使用矩形树图就加载treemap模块，按需加载
+		                'echarts/chart/pie',//使用面饼就加载pie模块
+                                'echarts/chart/bar', // 使用柱状图就加载bar模块
+                                'echarts/chart/bar', // 使用柱状图就加载bar模块
+            ],DrawEchats);
+			
+               
+                  function DrawEchats(ec){
+				drawMap(ec);
+                                drawTreemap(ec);
+                                drawPie(ec);
+                                drawBar1(ec);
+                                drawBar2(ec);
+			
+			}
+            
+
+
+function  drawMap(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('map')); 
+                
+                var option1 = {
+   title : {
+
+        text: '地域慈善捐款分布图',
+
+
+
+        x:'center'
+
+    },
+
+    tooltip : {
+
+        trigger: 'item'
+
+    },
+
+    legend: {
+
+        orient: 'vertical',
+
+        x:'left',
+
+        data:['地域分布点']
+
+    },
+
+    dataRange: {
+
+        x: 'left',
+
+        y: 'bottom',
+
+        splitList: [
+
+            {start: 300},
+
+            {start: 200, end: 300},
+
+            {start: 100, end: 200},
+
+            {start: 50, end: 100},
+
+            {start: 0, end: 50},
+
+            {end:0}
+
+        ],
+
+        color: ['#E0022B', '#E09107', '#A3E00B']
+
+    },
+
+    toolbox: {
+
+        show: true,
+
+        orient : 'vertical',
+
+        x: 'right',
+
+        y: 'center',
+
+        feature : {
+
+            mark : {show: true},
+
+            dataView : {show: true, readOnly: false},
+
+            restore : {show: true},
+
+            saveAsImage : {show: true}
+
+        }
+
+    },
+
+    roamController: {
+
+        show: true,
+
+        x: 'right',
+
+        mapTypeControl: {
+
+            'china': true
+
+        }
+
+    },
+
+    series : [
+
+        {
+
+            name: '地狱慈善捐助分布图',
+
+            type: 'map',
+
+            mapType: 'china',
+
+            roam: false,
+
+            itemStyle:{
+
+                normal:{
+
+                    label:{
+
+                        show:true,
+
+                        textStyle: {
+
+                           color: "rgb(249, 249, 249)"
+
+                        }
+
+                    }
+
+                },
+
+                emphasis:{label:{show:true}}
+
+            },
+
+            data:[
+
+                {name: '北京',value: 375},
+
+                {name: '天津',value: 166},
+
+                {name: '上海',value: 93},
+
+                {name: '重庆',value: 26},
+
+                {name: '河北',value: 84},
+
+                {name: '河南',value: 90},
+
+                {name: '云南',value: 35},
+
+                {name: '辽宁',value: 105},
+
+                {name: '黑龙江',value: 83},
+
+                {name: '湖南',value: 84},
+
+                {name: '安徽',value: 39},
+
+                {name: '山东',value: 61},
+
+                {name: '新疆',value: 41},
+
+                {name: '江苏',value: 647},
+
+                {name: '浙江',value: 139},
+
+                {name: '江西',value: 32},
+
+                {name: '湖北',value: 45},
+
+                {name: '广西',value: 26},
+
+                {name: '甘肃',value: 238},
+
+                {name: '山西',value: 78},
+
+                {name: '内蒙古',value: 134},
+
+                {name: '陕西',value: 107},
+
+                {name: '吉林',value: 85},
+
+                {name: '福建',value: 69},
+
+                 {name: '广东',value:353},
+
+                {name: '青海',value: 124},
+
+                {name: '西藏',value: 19},
+
+                {name: '四川',value: 223},
+
+                {name: '宁夏',value: 95},
+
+                 {name: '贵州',value: 10}
+    
+
+            ]
+
+        }
+
+    ]
+
+};  
+                myChart.setOption(option1,true); 
+            }
+
+	
+
+ function  drawTreemap(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('treemap')); 
+
+                var option2 = {
+
+   tooltip : {
+
+        trigger: 'item',
+
+        formatter: "{b}: {c}"
+
+    },
+
+    toolbox: {
+
+        show : true,
+
+        feature : {
+
+            mark : {show: true},
+
+            dataView : {show: true, readOnly: false},
+
+            restore : {show: true},
+
+            saveAsImage : {show: true}
+
+        }
+
+    },
+
+    calculable : false,
+
+    series : [
+
+        {
+
+            name:'各服务领域慈善组织数量统计',
+
+            type:'treemap',
+
+            itemStyle: {
+
+                normal: {
+
+                    label: {
+
+                        show: true,
+
+                        formatter: "{b}"
+
+                    },
+
+                    borderWidth: 1
+
+                },
+
+                emphasis: {
+
+                    label: {
+
+                        show: true
+
+                    }
+
+                }
+
+            },
+
+            data:[
+
+                {
+
+                    name: '人类服务类', value: 1205
+
+                },
+
+                {
+
+                    name: '教育类', value: 1111
+
+                },
+
+                {
+
+                    name: '医疗类', value: 525
+
+                },
+
+                {
+
+                    name: '扶贫与发展类', value: 646
+
+                },               
+
+				{
+
+                    name: '生态环境类', value: 215
+
+                },               
+
+				{
+
+                    name: '科技类', value: 233
+
+                },              
+
+				               {
+
+                    name: '文化类', value: 342
+
+                },
+
+				               {
+
+                    name: '体育类', value: 94
+
+                },
+
+				               {
+
+                    name: '法律救援', value: 137
+
+                },
+
+				               {
+
+                    name: '公用事业', value: 132
+
+                },
+
+				 {
+
+                    name: '社区发展类', value: 284
+
+                },
+
+                {
+
+                    name: '国际交流类', value: 163
+
+                },
+
+                {
+
+                    name: '志愿服务类', value: 137
+
+                },
+
+                {
+
+                    name: '人口与性别类', value: 138
+
+                },
+
+                {
+
+                    name: '公益慈善与行业发展类', value: 286
+
+                },
+
+                {
+
+                    name: '其他', value: 267
+
+                }
+
+            ]
+
+        }
+
+    ]
+
+};
+
+
+     myChart.setOption(option2,true); 
+
+    }    
+
+
+
+
+function  drawPie(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('pie')); 
+                
+                var  option3= {
+
+    title : {
+        text: '各类慈善组织数量统计',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data: ['基金会','社会团体','民办非企业','事业单位','其他']
+    },
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:2144, name:'基金会'},
+                {value:1284, name:'社会团体'},
+                {value:487, name:'民办非企业'},
+                {value:53, name:'事业单位'},
+                {value:43, name:'其他'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                 }
+            }
+        }
+    ]
+};
+
+ //为echarts对象加载数据
+                myChart.setOption(option3,true); 
+            }   
+
+
+
+function  drawBar1(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar1')); 
+                var option4 = {
+
+  title: {
+        text: '慈善组织收入金额统计（万元）',
+     
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        },
+        formatter: function (params) {
+            var tar = params[0];
+            return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
+        }
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    xAxis : [
+        {
+            type : 'category',
+            splitLine: {show:false},
+            data : ['1月','3月','5月','7月','9月','11月']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'辅助',
+            type:'bar',
+            stack: '总量',
+            itemStyle:{
+                normal:{
+                    barBorderColor:'rgba(0,0,0,0)',
+                    color:'rgba(0,0,0,0)'
+                },
+                emphasis:{
+                    barBorderColor:'rgba(0,0,0,0)',
+                    color:'rgba(0,0,0,0)'
+                }
+            },
+            data:[0, 1700, 1400, 1200, 300, 0]
+        },
+        {
+            name:'慈善收入金额（万元）',
+            type:'bar',
+            stack: '总量',
+            itemStyle : { normal: {label : {show: true, position: 'inside'}}},
+            data:[147690, 47891, 137863, 113397, 72405, 37608]
+        }
+    ]
+};
+
+//为echarts对象加载数据
+                myChart.setOption(option4,true); 
+            }
+
+
+
+
+function  drawBar2(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar2')); 
+                
+                var option5 = {
+
+    title : {
+        text: '捐赠者行业分布',
+        subtext: '数据来自网络'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['2014年', '2015年']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'value',
+            boundaryGap : [0, 0.01]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            data : ['农业','地质业','金融','互联网','制造业','房地产']
+        }
+    ],
+    series : [
+        {
+            name:'2014年',
+            type:'bar',
+            data:[18203, 23489, 29034, 104970, 131744, 630230]
+        },
+        {
+            name:'2015年',
+            type:'bar',
+            data:[19325, 23438, 31000, 121594, 134141, 681807]
+        }
+    ]
+};
+//为echarts对象加载数据
+                myChart.setOption(option5,true); 
+            }
+
+
+   </script>
+</body>
