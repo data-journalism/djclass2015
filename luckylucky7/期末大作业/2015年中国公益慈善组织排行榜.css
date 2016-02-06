@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+ .main-top .top-title{
+		background-color:#666;		
+		border:1px solid #666;
+		margin:auto;}
+ .main-top .top-title span{
+		color:#FFF;
+		font-size:34px;}
+ .main-top .top-title p{
+		font-size:16px;
+		color:#FFF;}
+.main-top .top-title p span{
+	font-size:18px;
+	font-weight:bold;}
+.main-top .top-word{
+		border:1px solid #666;
+		background-color:#CCC;}
+.main-top .top-word p{
+		font-style:italic;
+		color:#333;
+		font-size:14px;
+		margin-top:10px;
+		margin-bottom:10px;}
+.main-bottom p{
+	text-align:center;
+	color:#FFF;
+	background-color:#666;
+	height:60px;
+	padding-top:30px;
+	font-size:18px;}
+.title{
+	font-size:24px;
+	color:#333;
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:10px;}
+.one-word{
+	border:1px solid #EEE;
+	background-color:#EEE;
+	width:1000px;
+	margin:auto;
+	color:#666;}
+.one-word span{
+	color:#FD3120;
+	font-size:24px;}
+.two-word{
+	border:1px solid #EEE;
+	background-color:#EEE;
+	width:1000px;
+	margin:auto;
+	color:#666;}
+.two-word span{
+	color:#FD3120;
+	font-size:24px;}
