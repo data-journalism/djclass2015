@@ -1,0 +1,52 @@
+<!doctype html style="width: 100%; height: 100%"><head><meta charset="utf-8"></head><body style="width: 100%; height: 100%; margin: 0"><div id="container" style="width: 100%; height: 100%"></div><script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script><script type="text/javascript">var dom = document.getElementById("container");var myChart = echarts.init(dom);var app = {};option = null;option = {
+    legend: {
+        data:['年份(年)与全国居民消费价格指数(上年＝100)变化关系']
+    },
+    tooltip : {
+        trigger: 'axis',
+        formatter: "全国居民消费价格指数(上年＝100) : <br/>{b} : {c}"
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} '
+            }
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            axisLine : {onZero: false},
+            axisLabel : {
+                formatter: '{value} '
+            },
+            boundaryGap : false,
+            data : ['2006年', '2007年', '2008年', '2009年', '2010年', '2011年', '2012年', '2013年', '2014年']
+        }
+    ],
+    series : [
+        {
+            name:'年份(年)与全国居民消费价格指数(上年＝100)变化关系',
+            type:'line',
+            smooth:true,
+            itemStyle: {
+                normal: {
+                    lineStyle: {
+                        shadowColor : 'rgba(0,0,0,0.4)'
+                    }
+                }
+            },
+            data:[101.5, 104.8, 105.9, 99.3, 103.3, 105.4, 102.6, 102.6, 102.0]
+        }
+    ]
+};;if (option && typeof option === "object") {var startTime = +new Date();myChart.setOption(option, true);var endTime = +new Date();var updateTime = endTime - startTime;console.log("Time used:", updateTime);}</script>
+<br>居民消费价格指数，是一个反映居民家庭一般所购买的消费商品和服务价格水平变动情况的宏观经济指标。它是度量一组代表性消费商品及服务项目的价格水平随时间而变动的相对数，是用来反映居民家庭购买消费商品及服务的价格水平的变动情况。从近九年的cpi指数变化来看，整体呈平稳趋势，波动相对较小，其中2009年全国消费价格指数最低，为99.3（上年＝100）。<br>
+</body></html>
+
