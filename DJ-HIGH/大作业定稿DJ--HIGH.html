@@ -1,0 +1,822 @@
+﻿
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+</head>
+<body>
+<body bgcolor="#d0d0d0">
+<h1> 爱我你怕了吗？——来自二线城市的自白   </h1>
+
+<h2> 项目制作步骤  </h2>
+
+<ol>
+<li>数据采集、处理及分析</li>
+<li>设计图表并分析</li>
+<li>数据可视化及文字简介</li>
+</ol>
+
+<h2> 数据来源：</h2>
+<p> 数据主要来源：《南京统计年鉴2015》、《天津统计年鉴2015》、《杭州统计年鉴2015》、《成都统计年鉴2015》、《西安统计年鉴2015》  </p>
+<h2> 项目简介：  </h2>
+<p> 根据《中国城市建设统计年鉴2014》的数据，全国已有4个城市超过了1000万，分别是上海、北京、广州和深圳，这四个城市也刚好是目前的四大一线城市。<br /> 
+目前，超大城市的的“大城市病”已经非常严重，交通拥挤、雾霾等现象都与中国的超 大城市化密不可分。迫于资源约束等现实压力，一线城市正严格控制人口。北京、上海、广州等地均明确提出严控人口总量：北京市市长王安顺2016年1月22日说，北京在2020年的人口上限要控制在2300万以内；上海市市长杨雄2016年1月24日表示，“十三五”期间，上海将坚持综合施策，严格控制人口规模，常住人口总量控制在2500万以内；此前公布的广州“十三五”规划建议稿也提出，落实国家对特大城市人口控制政策，适度控制人口规模。<br /> 
+不过，严格控制超大城市人口规模，并不意味着人口往大城市转移的趋势会发生改变。 伴随着中小城市逐步放开户籍限制，虽然在中小城市落户十分容易，但人们往大城市走的趋势并不会太大改变。最主要的原因在于，三四线城市、中小城市缺乏好的，缺乏足够的产业支撑，对人口的吸引力比较有限。<br /> 
+一方面，像北、上、广、深等超大城市已经到了严控城市人口规模的阶段，另一方面三四线城市对外来大学生等又缺乏足够的吸引力。在这种情况下，二线城市将获得更多的发展空间。
+中国社科院城市发展与环境研究中心研究员牛凤瑞告诉《第一财经日报》，北京和上海 的城市人口已经达到2000万左右，确实出现了很多“城市病”。但很多二线城市的人口在五六百万左右，离北京、上海的距离还非常远，还有很大的增长空间。也就是说，未来除了北上广深四个超大城市需要严格控制人口规模外，其他城市如重庆、天津两大直辖市，以及大部分省会城市和青岛、厦门、大连、苏州、宁波等 沿海明星城市仍有很大的发展空间。<br /> 
+以下将选择五座具有代表性的城市，从全市收入支出、房价、全市生产总值、人口、空气质量、医疗和教育这七个方面来介绍这几座城市，希望给有意前往这些城市者以参考。<br /> 
+  </p>
+
+<h2>跳读链接</h2>
+
+            <ul class="nav navbar-nav">
+                <li><a href="#e">2014年各市收入支出情况 </a></li>
+                 <li><a href="#g">  2015年各市房价情况</a></li>
+                 <li><a href="#d">2014年GDP比较 </a></li>
+                <li><a href="#c">2014年各市人口情况 </a></li>
+                <li><a href="#b">2014年各市空气质量</a></li>
+                <li><a href="#f">2014年各市卫生医疗情况 </a></li>
+                 <li><a href="#a">2014年各市高等教育情况</a></li>
+
+<!--                <li><a href="?create_cache">更新缓存</a></li>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<h3>  2014年各市收入支出情况  </h3>
+ <a name="e"></a>
+    <div id="chart5" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart5')); 
+        
+        var option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:['城市人均月剩余', '城市人均月支出', '城市人均月收入']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            axisTick : {show: false},
+            data : ['南京','天津','杭州','西安','成都']
+        }
+    ],
+    series : [
+        {
+            name:'城市人均月剩余',
+            type:'bar',
+            itemStyle : {
+                normal: {
+                    label: {show: true, position: 'inside'}
+                }
+            },
+            data:[1393, 601, 1039, 1559, 913,]
+        },
+        {
+            name:'城市人均月收入',
+            type:'bar',
+            stack: '总量',
+            itemStyle: {
+                normal: {
+                    label : {show: true}
+                }
+            },
+            data:[3547, 2626, 3719, 3008, 2722]
+        },
+        {
+            name:'城市人均月支出',
+            type:'bar',
+            stack: '总量',
+            itemStyle: {normal: {
+                label : {show: true, position: 'left'}
+            }},
+            data:[-2155, -2024, -2680, -1450, -1809,]
+        }
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+
+
+ <p><b>简析</b>：各市人均收入主要在<b>3000元</b>附近，<b>杭州</b>收入最高且消费能力较为强劲。</p>
+
+<h3>  2015年各市房价情况  </h3>
+ <a name="g"></a>
+    <div id="chart7" style="height:600px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart7')); 
+        
+        var option = {
+    title : {
+        text: '2015年部分城市平均房价',
+        left: 'center',
+        textStyle: {
+        }
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {orient: 'vertical',
+        y: 'bottom',
+     x: 'right',
+        data:['南京新建房平均房价','天津新建房平均房价','西安新建房平均房价','杭州新建房平均房价','成都新建房平均房价']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            dataZoom: {},
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} 元'
+            }
+        }
+    ],
+    series : [
+       
+        
+         {
+            name:'西安新建房平均房价',
+            type:'line',
+            data:[6700,	6722,	6737,	6726,	6666,	6691,	6679,	6672,	6510,	6511,	6426,	6403
+
+],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }, {
+            name:'天津新建房平均房价',
+            type:'line',
+            data:[10520,		10597,		10559,		10566,		10573,		10613,		10688,		10782,		10832,		10894,		10927,		10999
+
+],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }, {
+            name:'杭州新建房平均房价',
+            type:'line',
+            data:[16215,	16153,	16132,	15898,	15830,	15942,	16026,	16047,	16155,	16069,	16104,	16186
+
+],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }, {
+            name:'成都新建房平均房价',
+            type:'line',
+            data:[7965,	7911,	7828,	7856,	7865,	7918,	7885,	7816,	7808,	7718,	7771,	7775
+
+],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'南京新建房平均房价',
+            type:'line',
+            data:[13807	,13768,	13670,	13751,	13843,	13949,	14023,	14256,	14329,	14514,	14661,	14759
+],
+            markPoint : {
+                data : [
+                     {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+
+
+ <p><b>简析</b>：伴随着<b>杭州</b>较高收入和较高消费能力的是杭州较高的房价，可以看出房价在去年一年呈现出稳重有升的趋势。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<h3> 2014年GDP比较   </h3>
+ <a name="d"></a>
+    <div id="chart4" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart4')); 
+        
+        var option = {
+    title : {
+        text: '各市2014年全市生产总值比较',
+        subtext: ' GDP（单位：亿元）',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+      y: 'bottom',
+       x: 'right',
+        data: ['南京','天津','西安','成都','杭州']
+    },
+    series : [
+        {
+            name: '全市生产总值',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:8820.75, name:'南京'},
+                {value:15726.93, name:'天津'},
+                {value:9206.16, name:'杭州'},
+                {value:5492.64, name:'西安'},
+                {value:10056.59, name:'成都'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+
+
+
+
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+
+
+
+
+ <p><b>简析</b>：<b> 天津市</b>的GDP总量明显高于其他各市。</p>
+<h3> 2014年各市人口情况   </h3>
+ <a name="c"></a>
+    <div id="chart3" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart3')); 
+        
+        var option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:['总户数（万户）','总人口数（万人）','男','女']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['天津','南京','杭州','西安','成都',]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'总户数（万户）',
+            type:'bar',
+            data:[362.63, 221.6, 222.35, 250.26, 467.16]
+        },
+       
+        {
+            name:'总人口数（万人）',
+            type:'bar',
+            data:[1016.66, 648.72, 715.76, 815.29, 1210.74],
+            
+               
+                
+            
+        },
+        {
+            name:'男',
+            type:'bar',
+   
+            stack: '总人口数（万人）',
+            data:[509.94, 325.04, 357.26, 412.26, 602.47]
+        },
+        {
+            name:'女',
+            type:'bar',
+            stack: '总人口数（万人）',
+            data:[506.72, 323.68, 358.5, 402.83, 608.27]
+        },
+        
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+
+
+ <p><b>简析</b>：五市常住人口总户数集中在200万到400万之间，离北京、上海的距离还非常远，<b>仍有很大的发展空间</b>。</p>
+
+<h3>2014年各市空气质量    </h3>
+ <a name="b"></a>
+    <div id="chart2" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart2')); 
+        
+        var 
+
+option = {
+    title : {
+        text: '部分城市天气状况',
+        
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'right',
+        y : 'bottom',
+        data:['南京','天津','杭州','西安','成都']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    polar : [
+       {
+           indicator : [
+               { text: 'PM10（毫克/立方米）', max:0.15},
+               { text: '二氧化硫（毫克/立方米）', max: 0.05},
+               { text: '二氧化氮（毫克/立方米））', max: 0.06},
+               { text: 'PM2.5（毫克/立方米）', max: 0.09},
+               { text: '环空质量良好以上天数', max: 250}
+            ]
+        }
+    ],
+    calculable : true,
+    series : [
+        {
+            name: '部分城市天气状况',
+            type: 'radar',
+            data : [
+                {
+                    value : [0.123	,0.025	,0.054,	0.073
+, 190],
+                    name : '南京'
+                },
+                {
+                    value : [0.133,	0.049,	0.054,	0.083
+, 175],
+                    name : '天津'
+                },{
+                    value : [0.098,	0.021,	0.05,	0.064
+, 228],
+                    name : '杭州'
+                },{
+                    value : [0.147,	0.032,	0.047	,0.076
+, 211],
+                    name : '西安'
+                },
+                 {
+                    value : [0.123,	0.019,	0.059,	0.077
+, 223],
+                    name : '成都'
+                }
+            ]
+        }
+    ]
+};
+                    
+
+
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+<p><b>简析</b>：  各市空气中主要污染物情况差异较大。总体来看，<b>杭州</b>空气质量略胜一筹。</p>
+<h3>   2014年各市卫生医疗情况 </h3>
+ <a name="f"></a>
+    <div id="chart6" style="height:600px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart6')); 
+        
+        var option = {
+    title : {
+        text: '2014年各市医疗卫生情况',
+        subtext: '左中右三图分别对应“医院数量”、“卫生机构数”和“卫生机构床位数”',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    
+    legend: {
+        x : 'center',
+        y : 'bottom',
+        data:['天津','南京','杭州','西安','成都']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'医院数量',
+            type:'pie',
+            radius : [20, 150],
+            center : ['30%', 230],
+            roseType : 'area',
+            data:[
+               
+                {value:186, name:'南京' , 
+    itemStyle: {
+        normal: {
+            color: '#84a600'
+        }
+    }},
+                {value:218, name:'杭州' , 
+    itemStyle: {
+        normal: {
+            color: '#9bc300'
+        }
+    }},
+                {value:281, name:'西安' , 
+    itemStyle: {
+        normal: {
+            color: '#b0dc00'
+        }
+    }}, {value:373, name:'天津' , 
+    itemStyle: {
+        normal: {
+            color: '#c6e584'
+        }
+    }},
+                {value:746, name:'成都' , 
+    itemStyle: {
+        normal: {
+            color: '#ffc000'
+        }
+    }}
+            ]
+        },
+        {
+            name:'卫生机构数',
+            type:'pie',
+            radius : [20, 110],
+            center : ['55%', 410],
+            roseType : 'radius',
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            lableLine: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+                
+                {value:2383, name:'南京' , 
+    itemStyle: {
+        normal: {
+            color: '#84a600'
+        }
+    }},
+                {value:4198, name:'杭州' , 
+    itemStyle: {
+        normal: {
+            color: '#9bc300'
+        }
+    }},
+                {value:5554, name:'西安' , 
+    itemStyle: {
+        normal: {
+            color: '#b0dc00'
+        }
+    }}, 
+    {value:4990, name:'天津' , 
+    itemStyle: {
+        normal: {
+            color: '#c6e584'
+        }
+    }},
+                {value:8190, name:'成都' , 
+    itemStyle: {
+        normal: {
+            color: '#ffc000'
+        }
+    }}
+            ]
+        },
+        {
+            name:'卫生机构床位数',
+            type:'pie',
+            radius : [20, 110],
+            center : ['75%', 200],
+            roseType : 'radius',
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            lableLine: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+                  
+                {value:43688, name:'南京' , 
+    itemStyle: {
+        normal: {
+            color: '#84a600'
+        }
+    }},
+                {value:55779, name:'杭州' , 
+    itemStyle: {
+        normal: {
+            color: '#9bc300'
+        }
+    }},
+                {value:51065, name:'西安' , 
+    itemStyle: {
+        normal: {
+            color: '#b0dc00'
+        }
+    }},
+    {value:60984, name:'天津' , 
+    itemStyle: {
+        normal: {
+            color: '#c6e584'
+        }
+    }},
+                {value:108000, name:'成都' , 
+    itemStyle: {
+        normal: {
+            color: '#ffc000'
+        }
+    }}
+            ]
+        }
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+
+<p><b>简析</b>：  作为内陆二线城市的代表，<b>成都</b>的医疗辐射范围较广，整体情况也优于其他四市。</p>
+<h3> 2014年各市高等教育情况   </h3>
+ <a name="a"></a>
+    <div id="chart1" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart1')); 
+        
+        var option = {
+    title : {
+        text: '2014年各市高等教育情况',
+        subtext: '数据来自2015年各市统计年鉴'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['在校学生数目','毕业生数目','专任教师数目']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['南京','天津','杭州','西安','成都']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'专任教师数目',
+            type:'bar',
+            data:[47749,31008,28265,46766,47463],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+                {
+            name:'毕业生数目',
+            type:'bar',
+            data:[309437,123505,110512,213000,187188],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'在校学生数目',
+            type:'bar',
+            data:[988735,505795,474652,854000,729338],
+           markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+
+<p><b>简析</b>： 总体来看，<b>南京市</b>高等教育水平相对较高。</p>
+<h2>参考报道：</h2>
+<p><a href="http://fs.house.sina.com.cn/news/2016-01-27/10536097944193463012995.shtml?wt_source=news_xwph_w06">http://fs.house.sina.com.cn/news/2016-01-27/10536097944193463012995.shtml?wt_source=news_xwph_w06t</a></br>
+
+<a href="http://mt.sohu.com/20160202/n436662514.shtml">http://mt.sohu.com/20160202/n436662514.shtml</a>
+
+  </p>
+<h3> 作者：DJ-High</h3>
+<h3> 指导老师：王成军  </h3>
+</body>
