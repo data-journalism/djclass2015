@@ -1,0 +1,183 @@
+
+ <!doctype html style="width: 100%; height: 100%"><head><meta charset="utf-8"></head><body style="width: 100%; height: 100%; margin: 0"><div id="container" style="width: 100%; height: 100%"></div><script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script><script type="text/javascript">var dom = document.getElementById("container");var myChart = echarts.init(dom);var app = {};option = null;option = {
+    title : {
+        text: '八大类CPI指数近三年情况分布图',
+        subtext: '数据来自国家统计局'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:[ '食品类','烟酒及用品类','衣着类','家庭设备用品及维修服务类','',
+            '医疗保健和个人用品类','交通和通信类','娱乐教育文化用品及服务类','居住类']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['2012年','2013年','2014年']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'食品类',
+            type:'bar',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[104.8, 104.7, 103.1],
+         markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'烟酒及用品类',
+            type:'bar',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[102.9, 100.3, 99.4],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'衣着类',
+            type:'bar',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[103.1, 102.3, 102.4],
+             markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'家庭设备用品及维修服务类',
+            type:'bar',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[101.9, 101.5, 101.2],
+             markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'医疗保健和个人用品类',
+            type:'bar',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[102, 101.3, 101.3],
+             markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'交通和通信类',
+            type:'bar',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[99.9, 99.6, 99.9],
+             markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'娱乐教育文化用品及服务类',
+            type:'bar',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[100.5, 101.8, 101.9],
+             markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'居住类',
+            type:'bar',
+            itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
+            data:[102.1, 102.8, 102],
+             markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+};
+;if (option && typeof option === "object") {var startTime = +new Date();myChart.setOption(option, true);var endTime = +new Date();var updateTime = endTime - startTime;console.log("Time used:", updateTime);}</script></body></html>
+
+<html>
+<body>
+
+<p>从图中的我们可以明显的看出2012年CPI指数最高的是食品类，除此之外，2013年、2014年CPI指数最高的均是食品类，毕竟“民以食为天”。其次是居住类和衣着类，不分高下，在三年中均占有相当大的比重，人们对于“衣食住行”中的“衣食住”的支出较大，但总的来看还是在逐年降低的。2012年烟酒及用品类的CPI指数很高，仅次于食品类，而接下来两年都有明显的下降，占整个CPI的比例逐渐降低，在2014年成为当年CPI最低的类别，显而易见，人们越来越注重健康，所以减少了花在烟酒上的钱。2012年CPI最低的是娱乐教育文化用品及服务类和交通和通信类，而到了13年、14年，娱乐教育文化用品及服务类所占比重逐渐加大，在14年成为仅次于食品、衣着、居住类，形成四足鼎立的局面，可见，人们越来越重视在娱乐、教育等服务类的花费，提高了精神享受。而交通和通信的CPI指数相对来说一直比较低，这也许与交通和通信设施的日益完备关系密切，使得人们花很少的钱也能满足这方面的需求。除此之外，家庭设备用品及维修服务类和医疗保健和个人用品类变化不大。
+<p>总的来说，通过这三年的CPI指数分析，我们不难看出人们的消费习惯越来越多趋向于合理，消费结构也越来越完善，注重自身健康，注重精神享受成为一个新的消费趋势。
+</p>
+
+</body>
+</html>

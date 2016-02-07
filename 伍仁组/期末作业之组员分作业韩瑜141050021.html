@@ -1,0 +1,69 @@
+<!doctype html style="width: 100%; height: 100%"><head><meta charset="utf-8"></head><body style="width: 100%; height: 100%; margin: 0"><div id="container" style="width: 100%; height: 100%"></div><script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script><script type="text/javascript">var dom = document.getElementById("container");var myChart = echarts.init(dom);var app = {};option = null;option = {
+    title : {
+        text: '城市居民与农村居民消费价格指数(上年=100）',
+        subtext: '数据来源：国家统计局'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['城市居民','农村居民']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['2005年','2006年','2007年','2008年','2009年','2010年','2011年','2012年','2013年','2014年']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'城市居民消费价格指数(上年=100）',
+            type:'bar',
+            data:[101.6, 101.5, 104.5, 105.6, 99.1, 103.2, 105.3, 102.7, 102.6, 102.1],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'农村居民消费价格指数（上年=100）',
+            type:'bar',
+            data:[102.2, 101.5, 105.4, 106.5, 99.7, 103.6, 105.8, 102.5, 102.8, 101.8],
+            markPoint : {
+                data : [
+                    {name : '年最高', value :  106.5, xAxis: 2008},
+                    {name : '年最低', value : 99.7, xAxis: 2009}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+;if (option && typeof option === "object") {var startTime = +new Date();myChart.setOption(option, true);var endTime = +new Date();var updateTime = endTime - startTime;console.log("Time used:", updateTime);}</script></body></html>

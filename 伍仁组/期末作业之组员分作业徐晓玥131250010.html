@@ -1,0 +1,202 @@
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+     <script src="js/esl.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+	<div id="mainpie" style="height:400px;width:800px;margin-left:auto; margin-right:auto;"></div>
+
+
+     <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths:{ 
+                'echarts' : 'js/echarts',
+                'echarts/chart/pie' : 'js/echarts'
+            }
+        });
+        
+        
+        // 使用
+        require(
+            [
+                'echarts',
+ 
+				'echarts/chart/pie',
+	
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+           
+                var myChart2 = ec.init(document.getElementById('mainpie'));
+		
+              
+
+                
+option = {
+    tooltip : {
+        show: true,
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+  
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'CPI指数',
+            type:'pie',
+            center : ['35%', 200],
+            radius : 80,
+            itemStyle : {
+                normal : {
+                    label : {
+                        position : 'inner',
+                        formatter : function (params) {                         
+                          return (params.percent - 0).toFixed(0) + '%'
+                        }
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                },
+                emphasis : {
+                    label : {
+                        show : true,
+                        formatter : "{b}\n{d}%"
+                    }
+                }
+                
+            },
+            data:[
+                {value:430, name:'各直辖市'},
+                {value:546.3, name:'各自治区'},
+                {value:2404.4, name:'各省'}
+            ]
+        },
+        {
+            name:'CPI指数',
+            type:'pie',
+            center : ['35%', 200],
+            radius : [110, 140],
+			 itemStyle : {
+                normal : {
+                    label : {
+                     show : true
+					
+					  
+                        }
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                },
+               
+            data:[
+                {value:430, name:'各直辖市'},
+                {value:546.3, name:'各自治区'},
+                {value:109.4, name:'河北省'},
+                {value:105.0, name:'山西省'},
+                	              
+                	                {value:108.7, name:'辽宁省'},
+                	                {value:105.5, name:'吉林省'},
+                	                {value:228, name:'黑龙江省&江苏省'},
+                	                
+                	                
+                	                {value:107.3, name:'浙江省'},
+                	                {value:107.0, name:'安徽省'},		
+                	                {value:107.9, name:'福建省'},
+                	                {value:110.1, name:'江西省'},	
+                	                {value:110.1, name:'山东省'},	
+                	                {value:108.6, name:'河南省'},	
+                	                {value:220, name:'湖北省&湖南省'},
+                	                
+                	                {value:108.3, name:'广东省'},		
+                	                
+                	                {value:108.7, name:'海南省'},
+                	                	
+                	                {value:108.4, name:'四川省'},
+                	                {value:220.8, name:'贵州省&云南省'},
+                	                	
+                	              
+                	                {value:110.1, name:'陕西省'},
+                	                {value:110.8, name:'甘肃省'},
+									{
+                    value:109.7,
+                    name:'青海省'
+                }
+                	           
+            ]
+        },
+        {
+            name:'各直辖市与各自治区CPI指数',
+            type:'pie',
+            clockWise:true,
+            startAngle: 135,
+            center : ['75%', 200],
+            radius : [80, 120],
+            itemStyle :　{
+                normal : {
+                    label : {
+                        show : false
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                },
+                emphasis : {
+                    color: (function (){
+                        var zrColor = require('zrender/tool/color');
+                        return zrColor.getRadialGradient(
+                            650, 200, 80, 650, 200, 120,
+                            [[0, 'rgba(255,255,0,1)'],[1, 'rgba(255,0,0,1)']]
+                        )
+                    })(),
+                    label : {
+                        show : true,
+                        position : 'center',
+                        formatter : "{d}%",
+                        textStyle : {
+                            color : 'red',
+                            fontSize : '30',
+                            fontFamily : '微软雅黑',
+                            fontWeight : 'bold'
+                        }
+                    }
+                }
+            },
+            data:[
+                 {value:108.7, name:'内蒙古自治区'},
+                 {value:107.6, name:'广西壮族自治区'},	
+                 {value:111.3, name:'西藏自治区'},	
+                 {value:111.7, name:'宁夏回族自治区'},	
+                 {value:107.0, name:'新疆维吾尔族自治区'},							
+				 {value:104.7, name:'北京市'},	
+                 {value:106.9, name:'天津市'},	
+                 {value:107.3, name:'上海市'},	
+                 {value:111.1, name:'重庆市'}
+
+            ],
+  
+        }
+    ]
+};
+                // 为echarts对象加载数据 
+            
+				myChart2.setOption(option); 
+		
+			}
+		);
+				
+
+    </script>
+</body>
