@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>bgxiaofendui</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar" style="height:400px"></div>
+	<div id="line" style="height:400px"></div>
+	<div id="pie" style="height:400px"></div>
+	<div id="radar" style="height:400px"></div>
+	<div id="map" style="height:400px"></div>	
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+				'echarts/chart/line',//使用折线图就加载line模块
+				'echarts/chart/pie',//使用面饼就加载pie模块
+				'echarts/chart/radar',//使用雷达图就加载radar模块
+				'echarts/chart/map',//使用地图就加载map模块
+            ],DrawEchats);
+			function DrawEchats(ec){
+				drawBar(ec);
+				drawLine(ec);
+				drawPie(ec);
+				drawRadar(ec);
+				drawMap(ec);
+			}
+            function  drawBar(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar')); 
+                
+                var option = {
+					title : {
+						text: '中华人民共和国男女人口总数',
+						subtext: '数据来自国家统计局',
+					},
+					tooltip : {
+						trigger: 'axis'
+					},
+					legend: {
+						data:['男性','女性']
+					},
+					toolbox: {
+						show : true,
+						feature : {
+							mark : {show: true},
+							dataView : {show: true, readOnly: false},
+							magicType : {show: true, type: ['line', 'bar']},
+							restore : {show: true},
+							saveAsImage : {show: true}
+						}
+					},
+					calculable : true,
+					xAxis : [
+						{
+							type : 'category',
+							data : ['2005','2006','2007','2008','2009','2010','2011','2012','2013','2014']
+						}
+					],
+					yAxis : [
+						{
+							type : 'value'
+						}
+					],
+					series : [
+						{
+							name:'男性',
+							type:'bar',
+							data:[67375, 67728, 68048, 68357, 68648, 68748, 69068, 69395, 69728, 70079],
+							markPoint : {
+								data : [
+									{type : 'max', name: '最大值'},
+									{type : 'min', name: '最小值'}
+								]
+							},
+						},
+						{
+							name:'女性',
+							type:'bar',
+							data:[63381, 63720, 64081, 64445, 64803, 65343, 65667, 66009, 66344, 66703,],
+							markPoint : {
+								data : [
+									{type : 'max', name: '最大值'},
+									{type : 'min', name: '最小值'}
+								]
+							},
+						}
+					]
+				};
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option,true); 
+            }
+			function  drawLine(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('line')); 
+                
+                var option2 = {
+					title : {
+						text: '未来一周南京气温变化',
+						subtext: '数据来自中国气象局',
+					},
+					tooltip : {
+						trigger: 'axis'
+					},
+					legend: {
+						data:['最高气温','最低气温']
+					},
+					toolbox: {
+						show : true,
+						feature : {
+							mark : {show: true},
+							dataView : {show: true, readOnly: false},
+							magicType : {show: true, type: ['line', 'bar']},
+							restore : {show: true},
+							saveAsImage : {show: true}
+						}
+					},
+					calculable : true,
+					xAxis : [
+						{
+							type : 'category',
+							boundaryGap : false,
+							data : ['周一','周二','周三','周四','周五','周六','周日']
+						}
+					],
+					yAxis : [
+						{
+							type : 'value',
+							axisLabel : {
+								formatter: '{value} °C'
+							}
+						}
+					],
+					series : [
+						{
+							name:'最高气温',
+							type:'line',
+							data:[9, 9, 7, 10, 9, 5, 8],
+							markPoint : {
+								data : [
+									{type : 'max', name: '最大值'},
+									{type : 'min', name: '最小值'}
+								]
+							},
+							markLine : {
+								data : [
+									{type : 'average', name: '平均值'}
+								]
+							}
+						},
+						{
+							name:'最低气温',
+							type:'line',
+							data:[2, 3, 4, 8, 4, -2, 0],
+							markPoint : {
+								data : [
+									{name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+								]
+							},
+							markLine : {
+								data : [
+									{type : 'average', name : '平均值'}
+								]
+							}
+						}
+					]
+				};       
+                // 为echarts对象加载数据 
+                myChart.setOption(option2,true); 
+            }
+			function  drawPie(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('pie')); 
+                
+                var option3 = {
+					title : {
+						text: '中华人民共和国2014年三大产业分布（单位：亿元）',
+						subtext: '数据来自国家统计局',
+						x:'center'
+					},
+					tooltip : {
+						trigger: 'item',
+						formatter: "{a} <br/>{b} : {c} ({d}%)"
+					},
+					legend: {
+						orient : 'vertical',
+						x : 'left',
+						data:['第一产业','第二产业','第三产业']
+					},
+					toolbox: {
+						show : true,
+						feature : {
+							mark : {show: true},
+							dataView : {show: true, readOnly: false},
+							magicType : {
+								show: true, 
+								type: ['pie', 'funnel'],
+								option: {
+									funnel: {
+										x: '25%',
+										width: '50%',
+										funnelAlign: 'left',
+										max: 306038
+									}
+								}
+							},
+							restore : {show: true},
+							saveAsImage : {show: true}
+						}
+					},
+					calculable : true,
+					series : [
+						{
+							name:'三大产业分布',
+							type:'pie',
+							radius : '55%',
+							center: ['50%', '60%'],
+							data:[
+								{value:58336, name:'第一产业'},
+								{value:271764, name:'第二产业'},
+								{value:306038, name:'第三产业'}
+							]
+						}
+					]
+				};       
+                // 为echarts对象加载数据 
+                myChart.setOption(option3,true); 
+            }
+			function  drawRadar(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('radar')); 
+                
+                var option4 = {
+						title : {
+							text: '梅西 vs C罗',
+							subtext: '数据来自实况足球游戏',
+						},
+						tooltip : {
+							trigger: 'axis'
+						},
+						legend: {
+							x : 'center',
+							data:['梅西','C罗']
+						},
+						toolbox: {
+							show : true,
+							feature : {
+								mark : {show: true},
+								dataView : {show: true, readOnly: false},
+								restore : {show: true},
+								saveAsImage : {show: true}
+							}
+						},
+						calculable : true,
+						polar : [
+							{
+								indicator : [
+									{text : '进攻', max  : 100},
+									{text : '防守', max  : 100},
+									{text : '体能', max  : 100},
+									{text : '速度', max  : 100},
+									{text : '力量', max  : 100},
+									{text : '爆发力', max  : 100}
+								],
+								radius : 130
+							}
+						],
+						series : [
+							{
+								name: '完全实况球员数据',
+								type: 'radar',
+								itemStyle: {
+									normal: {
+										areaStyle: {
+											type: 'default'
+										}
+									}
+								},
+								data : [
+									{
+										value : [94, 42, 73, 89, 90, 86],
+										name : '梅西'
+									},
+									{
+										value : [88, 50, 76, 94, 88, 92],
+										name : 'C罗'
+									}
+								]
+							}
+						]
+					};
+				myChart.setOption(option4,true);
+			}
+			function  drawMap(ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('map')); 
+                
+                var option5 = {
+					title : {
+						text: '2014年各省份国内生产总值(单位:亿元)',
+						subtext: '数据来自国家统计局',
+						x:'center'
+					},
+					tooltip : {
+						trigger: 'item'
+					},
+					legend: {
+						orient: 'vertical',
+						x:'left',
+						data:['2014年生产总值']
+					},
+					dataRange: {
+						min: 0,
+						max: 2500,
+						x: 'left',
+						y: 'bottom',
+						text:['高','低'],           // 文本，默认为数值文本
+						calculable : true
+					},
+					toolbox: {
+						show: true,
+						orient : 'vertical',
+						x: 'right',
+						y: 'center',
+						feature : {
+							mark : {show: true},
+							dataView : {show: true, readOnly: false},
+							restore : {show: true},
+							saveAsImage : {show: true}
+						}
+					},
+					roamController: {
+						show: true,
+						x: 'right',
+						mapTypeControl: {
+							'china': true
+						}
+					},
+					series : [
+						{
+							name: '2014年国内生产总值',
+							type: 'map',
+							mapType: 'china',
+							roam: false,
+							itemStyle:{
+								normal:{label:{show:true}},
+								emphasis:{label:{show:true}}
+							},
+							data:[
+								{name: '北京',value: 21330.83},
+								{name: '天津',value: 15722.47},
+								{name: '上海',value: 23560.94},
+								{name: '重庆',value: 14265.40},
+								{name: '河北',value: 29421.15},
+								{name: '河南',value: 34939.98},
+								{name: '云南',value: 12814.59},
+								{name: '辽宁',value: 28626.58},
+								{name: '黑龙江',value: 15039.38},
+								{name: '湖南',value: 27048.46},
+								{name: '安徽',value: 20848.75},
+								{name: '山东',value: 59426.59},
+								{name: '新疆',value: 9264.10},
+								{name: '江苏',value: 65088.32},
+								{name: '浙江',value: 40153.50},
+								{name: '江西',value: 15708.59},
+								{name: '湖北',value: 27367.04},
+								{name: '广西',value: 15672.97},
+								{name: '甘肃',value: 6835.27},
+								{name: '山西',value: 12759.44},
+								{name: '内蒙古',value: 17769.51},
+								{name: '陕西',value: 17689.94},
+								{name: '吉林',value: 13803.81},
+								{name: '福建',value: 24055.76},
+								{name: '贵州',value: 9251.01},
+								{name: '广东',value: 67792.24},
+								{name: '青海',value: 2301.12},
+								{name: '西藏',value: 920.83},
+								{name: '四川',value: 28536.66},
+								{name: '宁夏',value: 2752.10},
+								{name: '海南',value: 3500.72}
+							]
+						}
+					]
+				};
+				myChart.setOption(option5,true);
+			}
+    </script>
+</body>

@@ -1,8 +1,6 @@
 #tryR
 #womeishuohua
-#20150929
-##################chapter1#################
-
+#20151009
 
 1+1
 "Arr,matey"
@@ -23,10 +21,6 @@ example(min)
 help(rep)
 list.files()
 
-
-
-
-##################chapter2#################
 
 c(4,7,9)
 c('a','b','c')
@@ -76,7 +70,6 @@ sum(a)
 help(sum)
 sum(a, na.rm = TRUE)
 
-##################chapter3#################
 
 matrix(0, 3, 4)
 a <- 1:12
@@ -90,7 +83,7 @@ print(plank)
 plank[2, 3]
 plank[1, 4]
 plank[1, 4] <- 0
-plank[2,]
+plank[2,]	
 plank[, 4]
 plank[, 2:4]
 elevation <- matrix(1, 10, 10)
@@ -103,7 +96,6 @@ persp(volcano, expand=0.2)
 image(volcano)
 
 
-##################chapter 4#################
 
 limbs <- c(4, 3, 4, 3, 2, 4, 4, 4)
 names(limbs) <- c('One-Eye', 'Peg-Leg', 'Smitty', 'Hook', 'Scooter', 'Dan', 'Mikey', 'Blackbeard')
@@ -113,15 +105,3 @@ abline(h = mean(limbs))
 limbs <- c(4, 3, 4, 3, 2, 4, 4, 14)
 names(limbs) <- c('One-Eye', 'Peg-Leg', 'Smitty', 'Hook', 
                   'Scooter', 'Dan', 'Mikey', 'Davy Jones')
-mean(limbs)
-barplot(limbs)
-abline(h = mean(limbs))
-median(limbs)
-abline(h = median(limbs))
-pounds <- c(45000, 50000, 35000, 40000, 35000, 45000, 10000, 15000)
-barplot(pounds)
-meanValue <- mean(pounds)
-abline(h = meanValue)
-deviation <- sd(pounds)	
-abline(h = meanValue + deviation)	
-abline(h = meanValue - deviation)

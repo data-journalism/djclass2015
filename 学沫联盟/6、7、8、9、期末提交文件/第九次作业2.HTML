@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="GBK">
+    <title>ECharts</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main')); 
+        
+        var option = {
+            tooltip: {
+                show: true
+            },
+            legend: {
+                data:['销量']
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    "name":"销量",
+                    "type":"bar",
+                    "data":[5, 20, 40, 10, 10, 20]
+                }
+            ]
+        };
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+	<div id="main1" style="height:400px"></div>
+	<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main1')); 
+        
+        var option = {
+    title : {
+        text: '德国队效力联盟',
+        x:'right',
+        y:'bottom'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: function (params) {
+            if (params.indicator2) {    // is edge
+                return params.indicator2 + ' ' + params.name + ' ' + params.indicator;
+            } else {    // is node
+                return params.name
+            }
+        }
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            restore : {show: true},
+            magicType: {show: true, type: ['force', 'chord']},
+            saveAsImage : {show: true}
+        }
+    },
+    legend: {
+        x: 'left',
+        data:['阿森纳', '拜仁慕尼黑', '多特蒙德']
+    },
+    series : [
+        {
+            type:'chord',
+            sort : 'ascending',
+            sortSub : 'descending',
+            showScale : false,
+            itemStyle : {
+                normal : {
+                    label : {
+                        rotate : true
+                    }
+                }
+            },
+            // 使用 nodes links 表达和弦图
+            nodes: [
+                {name:'默特萨克'},
+                {name:'厄齐尔'},
+                {name:'波多尔斯基'},
+                {name:'诺伊尔'},
+                {name:'博阿滕'},
+                {name:'施魏因施泰格'},
+                {name:'拉姆'},
+                {name:'克罗斯'},
+                {name:'穆勒'},
+                {name:'格策'},
+                {name:'胡梅尔斯'},
+                {name:'魏登费勒'},
+                {name:'杜尔姆'},
+                {name:'格罗斯克罗伊茨'},
+                {name:'阿森纳'},
+                {name:'拜仁慕尼黑'},
+                {name:'多特蒙德'}
+            ],
+            links: [
+                {source: '阿森纳', target: '默特萨克', weight: 0.9, name: '效力'},
+                {source: '阿森纳', target: '厄齐尔', weight: 0.9, name: '效力'},
+                {source: '阿森纳', target: '波多尔斯基', weight: 0.9, name: '效力'},
+                {source: '拜仁慕尼黑', target: '诺伊尔', weight: 0.9, name: '效力'},
+                {source: '拜仁慕尼黑', target: '博阿滕', weight: 0.9, name: '效力'},
+                {source: '拜仁慕尼黑', target: '施魏因施泰格', weight: 0.9, name: '效力'},
+                {source: '拜仁慕尼黑', target: '拉姆', weight: 0.9, name: '效力'},
+                {source: '拜仁慕尼黑', target: '克罗斯', weight: 0.9, name: '效力'},
+                {source: '拜仁慕尼黑', target: '穆勒', weight: 0.9, name: '效力'},
+                {source: '拜仁慕尼黑', target: '格策', weight: 0.9, name: '效力'},
+                {source: '多特蒙德', target: '胡梅尔斯', weight: 0.9, name: '效力'},
+                {source: '多特蒙德', target: '魏登费勒', weight: 0.9, name: '效力'},
+                {source: '多特蒙德', target: '杜尔姆', weight: 0.9, name: '效力'},
+                {source: '多特蒙德', target: '格罗斯克罗伊茨', weight: 0.9, name: '效力'},
+
+                // Ribbon Type 的和弦图每一对节点之间必须是双向边
+                {target: '阿森纳', source: '默特萨克', weight: 1},
+                {target: '阿森纳', source: '厄齐尔', weight: 1},
+                {target: '阿森纳', source: '波多尔斯基', weight: 1},
+                {target: '拜仁慕尼黑', source: '诺伊尔', weight: 1},
+                {target: '拜仁慕尼黑', source: '博阿滕', weight: 1},
+                {target: '拜仁慕尼黑', source: '施魏因施泰格', weight: 1},
+                {target: '拜仁慕尼黑', source: '拉姆', weight: 1},
+                {target: '拜仁慕尼黑', source: '克罗斯', weight: 1},
+                {target: '拜仁慕尼黑', source: '穆勒', weight: 1},
+                {target: '拜仁慕尼黑', source: '格策', weight: 1},
+                {target: '多特蒙德', source: '胡梅尔斯', weight: 1},
+                {target: '多特蒙德', source: '魏登费勒', weight: 1},
+                {target: '多特蒙德', source: '杜尔姆', weight: 1},
+                {target: '多特蒙德', source: '格罗斯克罗伊茨', weight: 1}
+            ]
+        }
+    ]
+};
+                    
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+	<div id="main2" style="height:400px"></div>
+	<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main2')); 
+        
+        var option = {
+    title : {
+        text: '预算 vs 开销（Budget vs spending）',
+        subtext: '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'right',
+        y : 'bottom',
+        data:['预算分配（Allocated Budget）','实际开销（Actual Spending）']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    polar : [
+       {
+           indicator : [
+               { text: '销售（sales）', max: 6000},
+               { text: '管理（Administration）', max: 16000},
+               { text: '信息技术（Information Techology）', max: 30000},
+               { text: '客服（Customer Support）', max: 38000},
+               { text: '研发（Development）', max: 52000},
+               { text: '市场（Marketing）', max: 25000}
+            ]
+        }
+    ],
+    calculable : true,
+    series : [
+        {
+            name: '预算 vs 开销（Budget vs spending）',
+            type: 'radar',
+            data : [
+                {
+                    value : [4300, 10000, 28000, 35000, 50000, 19000],
+                    name : '预算分配（Allocated Budget）'
+                },
+                 {
+                    value : [5000, 14000, 28000, 31000, 42000, 21000],
+                    name : '实际开销（Actual Spending）'
+                }
+            ]
+        }
+    ]
+};
+                    
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+	<div id="main3" style="height:400px"></div>
+	<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main3')); 
+        
+        var option = {
+    title : {
+        text : '时间坐标折线图',
+        subtext : 'dataZoom支持'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter : function (params) {
+            var date = new Date(params.value[0]);
+            data = date.getFullYear() + '-'
+                   + (date.getMonth() + 1) + '-'
+                   + date.getDate() + ' '
+                   + date.getHours() + ':'
+                   + date.getMinutes();
+            return data + '<br/>'
+                   + params.value[1] + ', ' 
+                   + params.value[2];
+        }
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    dataZoom: {
+        show: true,
+        start : 70
+    },
+    legend : {
+        data : ['series1']
+    },
+    grid: {
+        y2: 80
+    },
+    xAxis : [
+        {
+            type : 'time',
+            splitNumber:10
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name: 'series1',
+            type: 'line',
+            showAllSymbol: true,
+            symbolSize: function (value){
+                return Math.round(value[2]/10) + 2;
+            },
+            data: (function () {
+                var d = [];
+                var len = 0;
+                var now = new Date();
+                var value;
+                while (len++ < 200) {
+                    d.push([
+                        new Date(2014, 9, 1, 0, len * 10000),
+                        (Math.random()*30).toFixed(2) - 0,
+                        (Math.random()*100).toFixed(2) - 0
+                    ]);
+                }
+                return d;
+            })()
+        }
+    ]
+};
+                    
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+	<div id="main4" style="height:400px"></div>
+	<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main4')); 
+        
+        var option = {
+    title : {
+        text: '漏斗图',
+        subtext: '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c}%"
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    legend: {
+        data : ['展现','点击','访问','咨询','订单']
+    },
+    calculable : true,
+    series : [
+        {
+            name:'漏斗图',
+            type:'funnel',
+            width: '40%',
+            data:[
+                {value:60, name:'访问'},
+                {value:40, name:'咨询'},
+                {value:20, name:'订单'},
+                {value:80, name:'点击'},
+                {value:100, name:'展现'}
+            ]
+        },
+        {
+            name:'金字塔',
+            type:'funnel',
+            x : '50%',
+            sort : 'ascending',
+            itemStyle: {
+                normal: {
+                    // color: 各异,
+                    label: {
+                        position: 'left'
+                    }
+                }
+            },
+            data:[
+                {value:60, name:'访问'},
+                {value:40, name:'咨询'},
+                {value:20, name:'订单'},
+                {value:80, name:'点击'},
+                {value:100, name:'展现'}
+            ]
+        }
+    ]
+};
+                    
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+</body>
