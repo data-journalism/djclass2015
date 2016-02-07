@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+	<head>
+	<meta charset="utf-8">
+	<title>ECharts</title>
+	</head>
+	<body>
+	
+	<h1><font face="方正兰亭粗黑_GBK">看懂一场比赛</font></h1>
+	<h2><font face="方正兰亭粗黑_GBK">
+	2015亚锦赛决赛数据展示</font></h2>
+	
+	<ul class="nav navbar-nav">
+	<li><a href="#1">队员上场时间对比</a></li>
+	<li><a href="#2">中国队队员个人总分情况对比</a></li>
+	<li><a href="#3">中国队员三分球数量及命中</a></li>
+	<li><a href="#4">中国队员两分球数量及命中</a></li>
+	<li><a href="#5">中国队员罚篮数量及命中</a></li>
+	<!-- <li><a href="?create_cache">更新缓存</a></li>-->
+	</ul>
+	</div><!--/.nav-collapse -->
+	</div>
+	</nav>
+	
+	
+	
+	<div class="col-md-5 col-xs-12">
+	<h4>项目制作步骤</h4>
+	<ul>
+	<li>数据采集</li>
+	<li>数据处理</li>
+	<li>数据分析</li>
+	<li>设计图表</li>
+	<li>图表分析</li>
+	<li>数据可视化（ECharts）</li>
+	
+	</ul>
+	</div> 
+	
+	
+	
+	
+	<div class="col-md-7 col-xs-12">
+	<h4>采集到的统计数据样本说明</h4>
+	<ul>
+	<li>数据来源：http://cba.sports.sina.com.cn/asiachampionship/men/stats/playerstats/?qleagueid=169&qround=%BE%F6%C8%FC
+	</li>
+	<li>说明：新浪网的数据统计
+	</li>
+	</ul>
+	</div>
+	
+	
+	
+	
+	
+	<h3>队员上场时间对比</h3> 
+	<a name="1"></a> 
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="bar1" style="height:400px"></div>
+	<!-- ECharts单文件引入 -->
+	<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+	<script type="text/javascript">
+	// 基于准备好的dom，初始化echarts图表
+	var myChart = echarts.init(document.getElementById('bar1')); 
+	
+	var option = {
+	tooltip: {
+	show: true
+	},
+	legend: {
+	data:['队员上场时间对比：min ']
+	},
+	xAxis : [
+	{
+	type : 'category',
+	data : 
+	['郭艾伦后卫','周琦中锋', '易建联前锋', '丁彦雨航锋卫', '李根前锋', '周鹏前锋', '赵继伟后卫', '翟晓川前锋', '王哲林中锋'],
+	}
+	],
+	yAxis : [
+	{
+	type : 'value'
+	}
+	],
+	series : [
+	{
+	"name":"时间",
+	"type":"bar",
+	"data":[27,16, 30, 28, 17, 27, 17, 30, 10]
+	}
+	]
+	};
+	
+	// 为echarts对象加载数据 
+	myChart.setOption(option); 
+	</script>
+	
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar6" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用bing状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar6')); 
+                
+                var option = {
+    title : {
+        text: '上场时间对比',
+        subtext: '中国队亚锦赛决赛',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['郭艾伦','周琦','易建联','丁彦雨航','李根','周鹏','赵继伟','翟晓川','王哲林']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 30
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'上场时间',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:27, name:'郭艾伦'},
+                {value:16, name:'周琦'},
+                {value:30, name:'易建联'},
+                {value:28, name:'丁彦雨航'},
+                {value:17, name:'李根'},
+                {value:27, name:'周鹏'},
+                {value:17, name:'赵继伟'},
+                {value:30, name:'翟晓川'},
+                {value:10, name:'王哲林'}
+            ]
+        }
+    ]
+};
+                    
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+	
+	<p><b>图说</b>：上场时间上来看，依赖郭艾伦，易建联，丁彦雨航，周鹏和翟晓川五个人更多一点，平均30min；
+		周琦，李根，赵继伟和王哲林，平均则只有15min的上场时间</p>
+	
+	
+	<h3>中国队员个人总分情况对比</h3> 
+	<a name="2"></a> 
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="bar2" style="height:400px"></div>
+	<!-- ECharts单文件引入 -->
+	<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+	<script type="text/javascript">
+	// 基于准备好的dom，初始化echarts图表
+	var myChart = echarts.init(document.getElementById('bar2')); 
+	
+	var option = {
+	tooltip: {
+	show: true
+	},
+	legend: {
+	data:['分']
+	},
+	xAxis : [
+	{
+	type : 'category',
+	data : 
+	['郭艾伦后卫','周琦中锋', '易建联前锋', '丁彦雨航锋卫', '李根前锋', '周鹏前锋', '赵继伟后卫', '翟晓川前锋', '王哲林中锋'],
+	}
+	],
+	yAxis : [
+	{
+	type : 'value'
+	}
+	],
+	series : [
+	{
+	"name":"分数",
+	"type":"bar",
+	"data":[19,16, 11, 9, 9, 7, 3, 2, 2]
+	}
+	]
+	};
+	
+	// 为echarts对象加载数据 
+	myChart.setOption(option); 
+	</script>
+	
+	    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar10" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用bing状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar10')); 
+                
+                var option = {
+    title : {
+        text: '个人得分对比',
+        subtext: '中国队亚锦赛决赛',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['郭艾伦','周琦','易建联','丁彦雨航','李根','周鹏','赵继伟','翟晓川','王哲林']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 19
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'个人得分',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:19, name:'郭艾伦'},
+                {value:16, name:'周琦'},
+                {value:11, name:'易建联'},
+                {value:9, name:'丁彦雨航'},
+                {value:9, name:'李根'},
+                {value:7, name:'周鹏'},
+                {value:3, name:'赵继伟'},
+                {value:2, name:'翟晓川'},
+                {value:2, name:'王哲林'}
+            ]
+        }
+    ]
+};
+                    
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+	
+	<p><b>图说</b>：得分上，周琦上场时间较短但是得分较其他人高很多</p>
+	
+	<h3>中国队员三分球数量及命中</h3> 
+	<a name="3"></a>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar3" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar3')); 
+                
+                var option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['个数','，命中']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['郭艾伦后卫','周琦中锋', '易建联前锋', '丁彦雨航锋卫', '李根前锋', '周鹏前锋', '赵继伟后卫', '翟晓川前锋', '王哲林中锋']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'个数',
+            type:'bar',
+            data:[4, 1, 0,5,4,3,3,4,0],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'命中',
+            type:'bar',
+            data:[2,0,0,2,3,1,1,0,0],
+            
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+
+	
+	<p><b>图说</b>：总体上，三分球命中率不高，丁彦雨航和李根三分球命中最多，翟晓川等人需要加强三分投篮的训练。</p>
+
+	<h3>中国队员两分球数量及命中</h3> 
+	<a name="4"></a>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar4" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar4')); 
+                
+                var option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['个数','，命中']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['郭艾伦后卫','周琦中锋', '易建联前锋', '丁彦雨航锋卫', '李根前锋', '周鹏前锋', '赵继伟后卫', '翟晓川前锋', '王哲林中锋']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'个数',
+            type:'bar',
+            data:[8,8,14,3,0,3,1,3,1],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'命中',
+            type:'bar',
+            data:[3,4,4,1,0,2,0,1,0],
+            
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+
+	
+	<p><b>图说</b>：总体上，除了李根，每个队员都有投篮，两分球投篮次数比三分球高很多，郭艾伦，周琦，易建联两分球机会最多，命中最多，</p>
+
+
+	<h3>中国队员罚篮数量及命中</h3> 
+	<a name="5"></a>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar7" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar7')); 
+                
+                var option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['个数','，命中']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['郭艾伦后卫','周琦中锋', '易建联前锋', '丁彦雨航锋卫', '李根前锋', '周鹏前锋', '赵继伟后卫', '翟晓川前锋', '王哲林中锋']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'个数',
+            type:'bar',
+            data:[10,12,6,1,0,0,0,0,4],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'命中',
+            type:'bar',
+            data:[7,8,3,1,0,0,0,0,2],
+            
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+
+
+
+	
+	<p><b>图说</b>：作为前锋或者后卫的李根，周鹏，赵继伟，翟晓川没有罚篮，罚篮最多的是作为后卫的郭艾伦和周琦，这可能与教练指定的战术和个人打法密切相关。</p>
+
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar8" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用bing状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar8')); 
+                
+                var option = {
+    title : {
+        text: '郭艾伦得分构成',
+        subtext: '中国队亚锦赛决赛',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['三分','两分','罚篮']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 19
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'得分构成',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:6, name:'三分'},
+                {value:6, name:'两分'},
+                {value:7, name:'罚篮'}
+            ]
+        }
+    ]
+};
+                    
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+    <p><b>图说</b>：作为后卫，得分来源比较均匀，可能是赛事比较紧张，对手防守比较紧张，罚篮较多</p>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar9" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用bing状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar9')); 
+                
+                var option = {
+    title : {
+        text: '周琦得分构成',
+        subtext: '中国队亚锦赛决赛',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['三分','两分','罚篮']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 19
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'得分构成',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:0, name:'三分'},
+                {value:8, name:'两分'},
+                {value:8, name:'罚篮'}
+            ]
+        }
+    ]
+};
+                    
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+    <p><b>图说</b>：作为中锋，得分集中于两分和罚篮，可能是赛事比较紧张，对手防守比较紧张，罚篮较多</p>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用bing状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main')); 
+                
+                var option = {
+    title : {
+        text: '易建联得分构成',
+        subtext: '中国队亚锦赛决赛',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['三分','两分','罚篮']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 19
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'得分构成',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:0, name:'三分'},
+                {value:8, name:'两分'},
+                {value:3, name:'罚篮'}
+            ]
+        }
+    ]
+};
+                    
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+    <p><b>图说</b>：作为中锋，得分集中于两分和罚篮，可能是赛事比较紧张，对手防守比较紧张，罚篮较多</p>	
+
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar11" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用bing状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar11')); 
+                
+                var option = {
+    title : {
+        text: '丁彦雨航得分构成',
+        subtext: '中国队亚锦赛决赛',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['三分','两分','罚篮']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 19
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'得分构成',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:6, name:'三分'},
+                {value:2, name:'两分'},
+                {value:1, name:'罚篮'}
+            ]
+        }
+    ]
+};
+                    
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+    <p><b>图说</b>：作为锋卫，三分是主要来源，要加强三分训练</p>    
+
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar12" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用bing状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar12')); 
+                
+                var option = {
+    title : {
+        text: '李根得分构成',
+        subtext: '中国队亚锦赛决赛',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['三分','两分','罚篮']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 19
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'得分构成',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:9, name:'三分'},
+                {value:0, name:'两分'},
+                {value:0, name:'罚篮'}
+            ]
+        }
+    ]
+};
+                    
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+    <p><b>图说</b>：作为前锋，得分全部来源于三分，应加强三分投篮训练。</p>    
+
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar13" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用bing状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('bar13')); 
+                
+                var option = {
+    title : {
+        text: '周鹏得分构成',
+        subtext: '中国队亚锦赛决赛',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['三分','两分','罚篮']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 19
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'得分构成',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:3, name:'三分'},
+                {value:4, name:'两分'},
+                {value:0, name:'罚篮'}
+            ]
+        }
+    ]
+};
+                    
+                    myChart.setOption(option); 
+            }
+        );
+    </script>
+    <p><b>图说</b>：作为前锋，得分来源于三分和两分。</p>
+
+
+
+
+	<h4>总结：</h4>
+	<p>男篮亚锦赛中,首发上场时间平均为30min，其他人平均15min，罚篮数量较多，3分，2分罚篮的命中率都有待提高，无论如何，希望男篮在取得亚锦赛冠军之后，不骄不躁，越来越好。</p>
+
+
+	<p>作者：李丽阁</p>
+	<p>学号：141099050</p>
+	<p>指导老师：王成军</p>
+	</body>
