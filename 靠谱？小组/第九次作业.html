@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts图表组件综合使用示例</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="bar" style="height: 400px;margin-top:20px;"></div>
+    <div id="line" style="height: 400px;margin-top:20px;"></div>
+    <div id="pie" style="height: 400px;margin-top:20px;"></div>
+    <div id="radar" style="height: 400px;margin-top:20px;"></div>
+    <div id="map" style="height: 400px;margin-top:20px;"></div>
+
+    <!-- ECharts单文件引入 -->
+
+    <script src="http://echarts.baidu.com/build/dist/echarts.js">   </script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+				'echarts/chart/line',//使用折线图就加载line模块
+				'echarts/chart/pie',//使用面饼就加载pie模块
+				'echarts/chart/radar',//使用雷达图就加载radar模块
+                'echarts/chart/map',//使用地图就加载map模块
+
+            ], DrawEchats);
+
+        /**
+        * 资源加载完毕后画图表
+        */
+        function DrawEchats(ec) {
+            drawLine(ec);
+            drawBar(ec);           
+            drawPie(ec);
+            drawRadar(ec);
+            drawMap(ec);
+        }
+
+
+        //柱状图
+        function drawLine(ec) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = ec.init(document.getElementById('bar'));
+
+            var option1 = {
+                title: {
+                    text: '杭州未来一周气温变化',
+                    subtext: '虚列数据，请勿当真',
+                    x:"center"
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['最高气温', '最低气温'],
+                    y:"bottom"
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: { show: true },
+                        dataView: { show: true, readOnly: false },
+                        magicType: { show: true, type: ['line', 'bar'] },
+                        restore: { show: true },
+                        saveAsImage: { show: true }
+                    }
+                },
+                calculable: true,
+                xAxis: [
+                    {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value} °C'
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '最高气温',
+                        type: 'line',
+                        data: [5, 3, 5, 4, 3, 2, 1],
+                        smooth:true,//平滑曲线
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ]
+                        },
+                        markLine: {
+                            data: [
+                                { type: 'average', name: '平均值' }
+                            ]
+                        }
+                    },
+                    {
+                        name: '最低气温',
+                        type: 'line',
+                        data: [-1, -1, -2, -3, -5, 0, -2],
+                        smooth: true,//平滑曲线
+                        markPoint: {
+                            data: [
+                                { name: '周最低', value: 0, xAxis: 7, yAxis: -2 }
+                            ]
+                        },
+                        markLine: {
+                            data: [
+                                { type: 'average', name: '平均值' }
+                            ]
+                        }
+                    }
+                ]
+            };
+            //为echarts对象加载数据
+            myChart.setOption(option1, true);
+        }
+
+
+        //柱状图
+        function drawBar(ec) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = ec.init(document.getElementById('line'));
+
+            var option2 = {
+
+                title: {
+                    x: 'center',
+                    text: '2015 P2P投资平台交易量排行',
+                    subtext: '数据来自网络单位[万]'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        dataView: { show: true, readOnly: false },
+                        restore: { show: true },
+                        saveAsImage: { show: true }
+                    }
+                },
+                calculable: true,
+                grid: {
+                    borderWidth: 0,
+                    y: 80,
+                    y2: 60
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        show: false,
+                        data: ['微贷网', '融之家', '808信贷', '大家在线', '聚千金融', '小九金服', '车贷网', '蜂鸟金服', '小草金融', '速贷宝', '海贷网']
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        show: false
+                    }
+                ],
+                series: [
+                    {
+                        name: '2015 P2P投资平台交易量排行',
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: function (params) {
+                                    // build a color map as your need.
+                                    var colorList = [
+                                      '#C1232B', '#B5C334', '#FCCE10', '#E87C25', '#27727B',
+                                       '#FE8463', '#9BCA63', '#FAD860', '#F3A43B', '#60C0DD',
+                                       '#D7504B', '#C6E579', '#F4E001', '#F0805A', '#26C0C0'
+                                    ];
+                                    return colorList[params.dataIndex]
+                                },
+                                label: {
+                                    show: true,
+                                    position: 'top',
+                                    formatter: '{b}\n{c}'
+                                }
+                            }
+                        },
+                        data: [1805633, 1797607, 1724976, 1650186, 1112859, 1062826, 1000678, 868677, 753230, 704818, 616096]
+                    }
+                ]
+            };
+
+            //为echarts对象加载数据
+            myChart.setOption(option2, true);
+        }
+
+
+        //饼状图
+        function drawPie(ec) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = ec.init(document.getElementById('pie'));
+
+            var option3 = {
+                title: {
+                    text: '数据新闻一班成绩占比统计',
+                    subtext: '数据来源：虚拟数据',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    y:"bottom",
+                    x: 'center',
+                    data: ['AAAAA', 'AAAA', 'AAA', 'AA', 'A']
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: { show: true },
+                        dataView: { show: true, readOnly: false },
+                        magicType: {
+                            show: true,
+                            type: ['pie', 'funnel'],
+                            option: {
+                                funnel: {
+                                    x: '25%',
+                                    width: '50%',
+                                    funnelAlign: 'left',
+                                    max: 266
+                                }
+                            }
+                        },
+                        restore: { show: true },
+                        saveAsImage: { show: true }
+                    }
+                },
+                calculable: true,
+                series: [
+                    {
+                        name: '数据新闻一班成绩占比统计',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        data: [
+                            { value: 266, name: 'AAA' },
+                            { value: 43, name: 'AAAAA' },
+                            { value: 32, name: 'AAAA' },
+                            { value: 3, name: 'A' },
+                            { value: 2, name: 'AA' }
+                        ]
+                    }
+                ]
+            };
+
+            //为echarts对象加载数据
+            myChart.setOption(option3, true);
+        }
+
+        //和弦图
+        function drawRadar(ec) {
+            var myChart = ec.init(document.getElementById('radar'));
+
+            var option4 = {
+                title: {
+                    text: '张飞 vs 关羽',
+                    subtext: '三国群英传武将属性',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    x: 'center',
+                    y:"bottom",
+                    data: ['张飞', '关羽']
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: { show: true },
+                        dataView: { show: true, readOnly: false },
+                        restore: { show: true },
+                        saveAsImage: { show: true }
+                    }
+                },
+                calculable: true,
+                polar: [
+                    {
+                        indicator: [
+                            { text: '武力', max: 100 },
+                            { text: '智力', max: 100 },
+                            { text: '体能', max: 100 },
+                            { text: '技能', max: 100 },
+                            { text: '忠诚', max: 100 },
+                            { text: '士气', max: 100 }
+                        ],
+                        radius: 130
+                    }
+                ],
+                series: [
+                    {
+                        name: '三国群英传武将属性',
+                        type: 'radar',
+                        itemStyle: {
+                            normal: {
+                                areaStyle: {
+                                    type: 'default'
+                                }
+                            }
+                        },
+                        data: [
+                            {
+                                value: [40, 28, 89, 48, 98, 95],
+                                name: '张飞'
+                            },
+                            {
+                                value: [60, 88, 90, 68, 83, 80],
+                                name: '关羽'
+                            }
+                        ]
+                    }
+                ]
+            };
+
+
+            //为echarts对象加载数据
+            myChart.setOption(option4, true);
+        }
+
+        //地图
+        function drawMap(ec) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = ec.init(document.getElementById('map'));
+
+            var option5 = {
+                title: {
+                    text: '2015年各省份国内生产总值(单位:亿元)',
+                    subtext: '数据来源：国家统计局',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: ['2015年生产总值']
+                },
+                dataRange: {
+                    min: 0,
+                    max: 67792.24,
+                    x: 'left',
+                    y: 'bottom',
+                    text: ['高', '低'],           // 文本，默认为数值文本
+                    calculable: true
+                },
+                toolbox: {
+                    show: true,
+                    orient: 'vertical',
+                    x: 'right',
+                    y: 'center',
+                    feature: {
+                        mark: { show: true },
+                        dataView: { show: true, readOnly: false },
+                        restore: { show: true },
+                        saveAsImage: { show: true }
+                    }
+                },
+                roamController: {
+                    show: true,
+                    x: 'right',
+                    mapTypeControl: {
+                        'china': true
+                    }
+                },
+                series: [
+                    {
+                        name: '2015年国内生产总值',
+                        type: 'map',
+                        mapType: 'china',
+                        roam: false,
+                        itemStyle: {
+                            normal: { label: { show: true } },
+                            emphasis: { label: { show: true } }
+                        },
+                        data: [
+                            { name: '北京', value: 21330.83 },
+                            { name: '天津', value: 15722.47 },
+                            { name: '上海', value: 23560.94 },
+                            { name: '重庆', value: 14265.40 },
+                            { name: '河北', value: 29421.15 },
+                            { name: '河南', value: 34939.98 },
+                            { name: '云南', value: 12814.59 },
+                            { name: '辽宁', value: 28626.58 },
+                            { name: '黑龙江', value: 15039.38 },
+                            { name: '湖南', value: 27048.46 },
+                            { name: '安徽', value: 20848.75 },
+                            { name: '山东', value: 59426.59 },
+                            { name: '新疆', value: 9264.10 },
+                            { name: '江苏', value: 65088.32 },
+                            { name: '浙江', value: 40153.50 },
+                            { name: '江西', value: 15708.59 },
+                            { name: '湖北', value: 27367.04 },
+                            { name: '广西', value: 15672.97 },
+                            { name: '甘肃', value: 6835.27 },
+                            { name: '山西', value: 12759.44 },
+                            { name: '内蒙古', value: 17769.51 },
+                            { name: '陕西', value: 17689.94 },
+                            { name: '吉林', value: 13803.81 },
+                            { name: '福建', value: 24055.76 },
+                            { name: '贵州', value: 9251.01 },
+                            { name: '广东', value: 67792.24 },
+                            { name: '青海', value: 2301.12 },
+                            { name: '西藏', value: 920.83 },
+                            { name: '四川', value: 28536.66 },
+                            { name: '宁夏', value: 2752.10 },
+                            { name: '海南', value: 3500.72 }
+                        ]
+                    }
+                ]
+            };
+            myChart.setOption(option5, true);
+        }
+
+    </script>
+</body>

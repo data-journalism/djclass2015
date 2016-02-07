@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="echarts.common.min.js"></script>
+    <meta charset="utf-8" />
+	</div>
+<div class="big_title">
+    <p>湖北省黄石市15年一、二手成交基本状况</p>
+</div>
+<div class="shuoming">
+    <p>◆ 以下图为去年15年黄石市一、二手房屋类型销售量</p>
+    <p>◆ 可以看出黄石市主要以一手房销售为主</p>
+	<p>◆ 二手房以存量房</p>
+    <p>◆ 市场进入“存量房时代”
+　　 “从整个市场来看，新房业务量占70%，二手房占30%，未来这样的数据比例应该会倒过来。”业内人士认为，目前房地产正在进入存量房时代，对未来房地产经纪行业市场表示看好。
+　　 从数据上看，根据黄石市存量房数据统计平台公布数据显示，2015年我市二手房交易总量为5942套，其中住宅成交量为5474套，与去年同期相比，增幅较为明显。
+　　 从成交比例看，黄石港市中心板块是市民首选，总房价在40万元以下的（二房三房60—90平方米）最受欢迎，占到二手房交易的70%，而大三房或复式由于总价较高，交易比例较低。
+　　 “房地产市场正在进入存量房时代。”湖北戴祁梁行房产顾问有限公司总经理戴龙波判断。也正是嗅到了这一市场商家，不少代理机构纷纷转入二手房业务，成为当前市场的一大亮点。</p>
+    <p>◆ “一二手房”联动成趋势
+　　 “一二手房联动将是未来趋势。”美南地产工作人员向记者透露，在很大比例上，二手房购房者都是刚需群体，今年最大的特点是出现了大量的棚改居民。
+　　 庞大的刚需群体的存在，也为中介机构一二手联动提供了动力。易家亿房产超市负责人李斌分析，房地产中介机构介入一手房销售，对开发商迅速回笼资金，以及中介机构业绩增长都起到明显的推动作用。
+　　 对于开发商而言，在市场行情低迷时，通过中介机构销售更加有效。有些一手楼盘的销售团队仅有十几个人，吸引客源的方式主要通过发传单和网络宣传。但对于观望情绪浓厚的购房者而言，一张售楼书，一段广告视频很难吸引他们。
+　　 相比之下，大型中介机构的网店遍布全市各区域，员工总数多达几百人，他们已经积累了丰富的客源，而且能与购房者面对面地介绍楼盘，这种宣传频率更高、范围更广，信息更细致、更吸引人，因此销售效果也更好。这也是代理公司比较欠缺的优势。</p>
+</div>
+	
+</head>
+<body>
+    <div id="main" style="width: 720px;height:480px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+
+		
+        var option = {
+            title: {
+                text: '黄石市2015年一、二手房成交基本情况表'
+				},
+
+            tooltip: {},
+            legend: {
+                data: ['住房类别']
+            },
+            xAxis: {
+                data: ["一手房", "二手房"]
+            },
+            yAxis: {},
+            series: [{
+                name: '成交套数',
+                type: 'bar',
+                data: [9800, 5942]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <div id="main1" style="width: 900px;height:480px;"></div>
+    <script type="text/javascript">
+        var dom = document.getElementById("main1"); var myChart = echarts.init(dom); var app = {}; option = null; option = {
+            title: {
+                text: '黄石市2015年一、二手成交基本情况表',
+                subtext: '',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ["住房", "办公楼", "商业用房", "工业用房", "其他"]
+            },
+            series: [
+                {
+                    name: '房屋成交基',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        { value: 56, name: '一手房' },
+                        { value: 44, name: '二手房' },
+                        
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        ; if (option && typeof option === "object") { var startTime = +new Date(); myChart.setOption(option, true); var endTime = +new Date(); var updateTime = endTime - startTime; console.log("Time used:", updateTime); }</script>
+<div id="main3" style="width: 900px;height:480px;"></div>
+    <script type="text/javascript">
+        var dom = document.getElementById("main3"); var myChart = echarts.init(dom); var app = {}; option = null; option = {
+            title: {
+                text: '黄石市2015年存量房成交基本情况表',
+                subtext: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['2015年']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'value',
+                    boundaryGap: [0, 0.01]
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'category',
+                    data: ["住房", "办公楼", "商业用房", "工业用房", "其他"]
+                }
+            ],
+            series: [
+                {
+                    name: '2015年',
+                    type: 'bar',
+                    data: [6470, 200, 300, 450, 250]
+                }
+            ]
+        };
+        ; if (option && typeof option === "object") { var startTime = +new Date(); myChart.setOption(option, true); var endTime = +new Date(); var updateTime = endTime - startTime; console.log("Time used:", updateTime); }</script>
+    <div id="main4" style="width: 900px;height:480px;"></div>
+  
+</body>
+</html>

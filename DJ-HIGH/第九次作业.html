@@ -1,0 +1,676 @@
+﻿<h3> 2014年各市高等教育情况   </h3>
+ <a name="hotWord"></a>
+    <div id="chart1" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart1')); 
+        
+        var option = {
+    title : {
+        text: '2014年各市高等教育情况',
+        subtext: '数据来自2015年各市统计年鉴'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['在校学生数目','毕业生数目','专任教师数目']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['南京','天津','杭州','西安','成都']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'专任教师数目',
+            type:'bar',
+            data:[47749,31008,28265,46766,47463],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+                {
+            name:'毕业生数目',
+            type:'bar',
+            data:[309437,123505,110512,213000,187188],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'在校学生数目',
+            type:'bar',
+            data:[988735,505795,474652,854000,729338],
+           markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+<h3>2014年各市空气质量    </h3>
+ <a name="hotWord"></a>
+    <div id="chart2" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart2')); 
+        
+        var 
+
+option = {
+    title : {
+        text: '部分城市天气状况',
+        
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'right',
+        y : 'bottom',
+        data:['南京','天津','杭州','西安','成都']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    polar : [
+       {
+           indicator : [
+               { text: 'PM10（毫克/立方米）', max:0.15},
+               { text: '二氧化硫（毫克/立方米）', max: 0.05},
+               { text: '二氧化氮（毫克/立方米））', max: 0.06},
+               { text: 'PM2.5（毫克/立方米）', max: 0.09},
+               { text: '环空质量良好以上天数', max: 250}
+            ]
+        }
+    ],
+    calculable : true,
+    series : [
+        {
+            name: '部分城市天气状况',
+            type: 'radar',
+            data : [
+                {
+                    value : [0.123	,0.025	,0.054,	0.073
+, 190],
+                    name : '南京'
+                },
+                {
+                    value : [0.133,	0.049,	0.054,	0.083
+, 175],
+                    name : '天津'
+                },{
+                    value : [0.098,	0.021,	0.05,	0.064
+, 228],
+                    name : '杭州'
+                },{
+                    value : [0.147,	0.032,	0.047	,0.076
+, 211],
+                    name : '西安'
+                },
+                 {
+                    value : [0.123,	0.019,	0.059,	0.077
+, 223],
+                    name : '成都'
+                }
+            ]
+        }
+    ]
+};
+                    
+
+
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+<h3> 2014年各市人口情况   </h3>
+ <a name="hotWord"></a>
+    <div id="chart3" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart3')); 
+        
+        var option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:['总户数（万户）','总人口数（万人）','男','女']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['天津','南京','杭州','西安','成都',]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'总户数（万户）',
+            type:'bar',
+            data:[362.63, 221.6, 222.35, 250.26, 467.16]
+        },
+       
+        {
+            name:'总人口数（万人）',
+            type:'bar',
+            data:[1016.66, 648.72, 715.76, 815.29, 1210.74],
+            
+               
+                
+            
+        },
+        {
+            name:'男',
+            type:'bar',
+   
+            stack: '总人口数（万人）',
+            data:[509.94, 325.04, 357.26, 412.26, 602.47]
+        },
+        {
+            name:'女',
+            type:'bar',
+            stack: '总人口数（万人）',
+            data:[506.72, 323.68, 358.5, 402.83, 608.27]
+        },
+        
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+
+<h3>  2014年各市收入支出情况  </h3>
+ <a name="hotWord"></a>
+    <div id="chart5" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart5')); 
+        
+        var option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:['城市人均月剩余', '城市人均月支出', '城市人均月收入']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            axisTick : {show: false},
+            data : ['南京','天津','杭州','西安','成都']
+        }
+    ],
+    series : [
+        {
+            name:'城市人均月剩余',
+            type:'bar',
+            itemStyle : {
+                normal: {
+                    label: {show: true, position: 'inside'}
+                }
+            },
+            data:[1393, 601, 1039, 1559, 913,]
+        },
+        {
+            name:'城市人均月收入',
+            type:'bar',
+            stack: '总量',
+            itemStyle: {
+                normal: {
+                    label : {show: true}
+                }
+            },
+            data:[3547, 2626, 3719, 3008, 2722]
+        },
+        {
+            name:'城市人均月支出',
+            type:'bar',
+            stack: '总量',
+            itemStyle: {normal: {
+                label : {show: true, position: 'left'}
+            }},
+            data:[-2155, -2024, -2680, -1450, -1809,]
+        }
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+<h3>   2014年各市卫生医疗情况 </h3>
+ <a name="hotWord"></a>
+    <div id="chart6" style="height:600px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart6')); 
+        
+        var option = {
+    title : {
+        text: '2014年各市医疗卫生情况',
+        subtext: '左中右三图分别对应“医院数量”、“卫生机构数”和“卫生机构床位数”',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    
+    legend: {
+        x : 'center',
+        y : 'bottom',
+        data:['天津','南京','杭州','西安','成都']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'医院数量',
+            type:'pie',
+            radius : [20, 150],
+            center : ['30%', 230],
+            roseType : 'area',
+            data:[
+               
+                {value:186, name:'南京' , 
+    itemStyle: {
+        normal: {
+            color: '#84a600'
+        }
+    }},
+                {value:218, name:'杭州' , 
+    itemStyle: {
+        normal: {
+            color: '#9bc300'
+        }
+    }},
+                {value:281, name:'西安' , 
+    itemStyle: {
+        normal: {
+            color: '#b0dc00'
+        }
+    }}, {value:373, name:'天津' , 
+    itemStyle: {
+        normal: {
+            color: '#c6e584'
+        }
+    }},
+                {value:746, name:'成都' , 
+    itemStyle: {
+        normal: {
+            color: '#ffc000'
+        }
+    }}
+            ]
+        },
+        {
+            name:'卫生机构数',
+            type:'pie',
+            radius : [20, 110],
+            center : ['55%', 410],
+            roseType : 'radius',
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            lableLine: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+                
+                {value:2383, name:'南京' , 
+    itemStyle: {
+        normal: {
+            color: '#84a600'
+        }
+    }},
+                {value:4198, name:'杭州' , 
+    itemStyle: {
+        normal: {
+            color: '#9bc300'
+        }
+    }},
+                {value:5554, name:'西安' , 
+    itemStyle: {
+        normal: {
+            color: '#b0dc00'
+        }
+    }}, 
+    {value:4990, name:'天津' , 
+    itemStyle: {
+        normal: {
+            color: '#c6e584'
+        }
+    }},
+                {value:8190, name:'成都' , 
+    itemStyle: {
+        normal: {
+            color: '#ffc000'
+        }
+    }}
+            ]
+        },
+        {
+            name:'卫生机构床位数',
+            type:'pie',
+            radius : [20, 110],
+            center : ['75%', 200],
+            roseType : 'radius',
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            lableLine: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+                  
+                {value:43688, name:'南京' , 
+    itemStyle: {
+        normal: {
+            color: '#84a600'
+        }
+    }},
+                {value:55779, name:'杭州' , 
+    itemStyle: {
+        normal: {
+            color: '#9bc300'
+        }
+    }},
+                {value:51065, name:'西安' , 
+    itemStyle: {
+        normal: {
+            color: '#b0dc00'
+        }
+    }},
+    {value:60984, name:'天津' , 
+    itemStyle: {
+        normal: {
+            color: '#c6e584'
+        }
+    }},
+                {value:108000, name:'成都' , 
+    itemStyle: {
+        normal: {
+            color: '#ffc000'
+        }
+    }}
+            ]
+        }
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+<h3>  2014年各市房价情况  </h3>
+ <a name="hotWord"></a>
+    <div id="chart7" style="height:600px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('chart7')); 
+        
+        var option = {
+    title : {
+        text: '2015年部分城市平均房价',
+        left: 'center',
+        textStyle: {
+        }
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {orient: 'vertical',
+        y: 'bottom',
+     x: 'right',
+        data:['南京新建房平均房价','天津新建房平均房价','西安新建房平均房价','杭州新建房平均房价','成都新建房平均房价']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            dataZoom: {},
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} 元'
+            }
+        }
+    ],
+    series : [
+       
+        
+         {
+            name:'西安新建房平均房价',
+            type:'line',
+            data:[6700,	6722,	6737,	6726,	6666,	6691,	6679,	6672,	6510,	6511,	6426,	6403
+
+],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }, {
+            name:'天津新建房平均房价',
+            type:'line',
+            data:[10520,		10597,		10559,		10566,		10573,		10613,		10688,		10782,		10832,		10894,		10927,		10999
+
+],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }, {
+            name:'杭州新建房平均房价',
+            type:'line',
+            data:[16215,	16153,	16132,	15898,	15830,	15942,	16026,	16047,	16155,	16069,	16104,	16186
+
+],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        }, {
+            name:'成都新建房平均房价',
+            type:'line',
+            data:[7965,	7911,	7828,	7856,	7865,	7918,	7885,	7816,	7808,	7718,	7771,	7775
+
+],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'南京新建房平均房价',
+            type:'line',
+            data:[13807	,13768,	13670,	13751,	13843,	13949,	14023,	14256,	14329,	14514,	14661,	14759
+],
+            markPoint : {
+                data : [
+                     {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
