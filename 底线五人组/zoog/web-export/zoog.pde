@@ -1,6 +1,6 @@
 void setup(){
  
-  size(400,400);
+  size(1000,800);
 }
  float eyeR; 
  float eyeG; 
