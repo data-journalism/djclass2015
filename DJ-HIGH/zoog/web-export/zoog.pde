@@ -1,6 +1,6 @@
 
 void setup() {
-  size(480, 270);  // Set the size of the window
+  size(1000, 800);  // Set the size of the window
 }
 
 void draw() {
