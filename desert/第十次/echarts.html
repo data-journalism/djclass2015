@@ -1,0 +1,529 @@
+<!DCOTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>echarts testing page</title>
+    <script src="./js/esl.js"></script>
+    <script src="./js/echarts.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="figure1bar" style="height:400px;"></div>
+<script type="text/javascript">
+    require.config({
+        paths:{
+            "echarts":"js/echarts",
+            "echarts/chart/bar":"js/bar"
+        }
+    });
+
+    //using
+    require(
+            [
+                "echarts",
+                "echarts/chart/bar"
+            ],
+            function(ec){
+                var myChart=ec.init(document.getElementById("figure1bar"));
+                <!--Input your code here-->
+                var option = {
+                    title : {
+                        text: '全国各类商品房平均销售价格',
+                        subtext: '（元/平方米）'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['商品房','住宅商品房','别墅、高档公寓','办公楼商品房','商业营业用房','其他商品房']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar','stack', 'tiled']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ['2014年','2013年','2012年','2011年','2010年','2009年','2008年','2007年','2006年','2005年','2004年','2003年','2002年','2001年','2000年']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'商品房',
+                            type:'bar',
+                            data:[6324,6237,5790.99,5357.1,5032,4681,3800,3863.9,3366.79,3167.66,2778,2359,2250,2170,2112],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'住宅商品房',
+                            type:'bar',
+                            data:[5933,5850,5429.93,4993.17,4725,4459,3576,3645.18,3119.25,2936.96,2608,2197,2092,2017,1948],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'别墅、高档公寓',
+                            type:'bar',
+                            data:[12965,12591,11460.19,10993.92,10934,9662,7801,7471.25,6584.93,5833.95,5576,4145,4154,4348,4288],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'办公楼商品房',
+                            type:'bar',
+                            data:[11826,12997,12306.41,12327.28,11406,10608,8378,8667.02,8052.78,6922.52,5744,4196,4336,4588,4751],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'商业营业用房',
+                            type:'bar',
+                            data:[9817,9777,9020.91,8488.21,7747,6871,5886,5773.83,5246.62,5021.75,3884,3675.14,3488.57,3273.53,3260.38],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'其他商品房',
+                            type:'bar',
+                            data:[5177,4907,4305.73,4182.11,4099,3671,3219,3351.44,3131.31,2829.35,2235,2240.74,1918.83,2033.08,1864.37],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '平均值'}
+                                ]
+                            }
+                        },
+                    ]
+                };
+                <!--Input your code here-->
+                //loading data
+                myChart.setOption(option);
+            }
+    );
+</script>
+<!--Input your code here-->
+<div id="figure2bar" style="height:400px;"></div>
+<script type="text/javascript">
+    require.config({
+        paths:{
+            "echarts":"js/echarts",
+            "echarts/chart/chord":"js/bar"
+        }
+    });
+
+    //using
+    require(
+            [
+                "echarts",
+                "echarts/chart/bar"
+            ],
+            function(ec){
+                var myChart=ec.init(document.getElementById("figure2bar"));
+                <!--Input your code here-->
+                option = {
+                    title : {
+                        text: '全国住宅建设投资额_累计值和累计增长',
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType: {show: true, type: ['line', 'bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    legend: {
+                        data:['累计值','累计增长']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ['2015年11月','2015年10月','2015年9月','2015年8月','2015年7月','2015年6月','2015年5月','2015年4月','2015年3月','2015年2月','2014年12月']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            name : '累计值',
+                            axisLabel : {
+                                formatter: '{value} 亿元'
+                            }
+                        },
+                        {
+                            type : 'value',
+                            name : '累计增长',
+                            axisLabel : {
+                                formatter: '{value} %'
+                            }
+                        }
+                    ],
+                    series : [
+
+                        {
+                            name:'累计值',
+                            type:'bar',
+                            data:[66203.86,59601.62,53109.24,45876.82,39406.17,32784.66,24004.95,17498.9,12214.77,6450.04,72727.95]
+                        },
+
+                        {
+                            name:'累计增长',
+                            type:'line',
+                            yAxisIndex: 1,
+                            data:[0.1,0.7,1.1,1.9,2.5,2.3,2.5,3.5,5.7,9.5,7.9]
+                        }
+                    ]
+                };
+                <!--Input your code here-->
+                //loading data
+                myChart.setOption(option);
+            }
+    );
+</script>
+<div id="figure3map" style="height:400px;"></div>
+<script type="text/javascript">
+    require.config({
+        paths:{
+            "echarts":"js/echarts",
+            "echarts/chart/map":"js/map"
+        }
+    });
+
+    //using
+    require(
+            [
+                "echarts",
+                "echarts/chart/map"
+            ],
+            function(ec){
+                var myChart=ec.init(document.getElementById("figure3map"));
+                <!--Input your code here-->
+                var option = {
+                    title : {
+                        text: '全国部分省份2014年商品房平均销售价格',
+                        subtext: '（元/平方米）',
+                        x:'center'
+                    },
+                    tooltip : {
+                        trigger: 'item'
+                    },
+
+                    dataRange: {
+                        min: 4000,
+                        max: 10000,
+                        x: 'left',
+                        y: 'bottom',
+                        text:['高','低'],           // 文本，默认为数值文本
+                        calculable : true
+                    },
+                    toolbox: {
+                        show: true,
+                        orient : 'vertical',
+                        x: 'right',
+                        y: 'center',
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    roamController: {
+                        show: true,
+                        x: 'right',
+                        mapTypeControl: {
+                            'china': true
+                        }
+                    },
+                    series : [
+                        {
+                            name: '2014年',
+                            type: 'map',
+                            mapType: 'china',
+                            roam: false,
+                            itemStyle:{
+                                normal:{label:{show:true}},
+                                emphasis:{label:{show:true}}
+                            },
+                            data:[
+                                {name: '河北',value: 5131},
+                                {name: '山西',value: 4734},
+                                {name: '辽宁',value: 5373},
+                                {name: '吉林',value: 5112},
+                                {name: '江苏',value: 7006},
+                                {name: '浙江',value: 10526},
+                                {name: '安徽',value: 5394},
+                                {name: '福建',value: 9136},
+                                {name: '江西',value: 5288},
+                                {name: '山东',value: 5315},
+                                {name: '河南',value: 4366},
+                                {name: '湖北',value: 5513},
+                                {name: '湖南',value: 4227},
+                                {name: '广东',value: 9083},
+                                {name: '海南',value: 9315},
+                                {name: '四川',value: 5597},
+                                {name: '贵州',value: 4312},
+                                {name: '云南',value: 4998},
+                                {name: '陕西',value: 5166},
+                                {name: '甘肃',value: 4544},
+                                {name: '青海',value: 5081},
+                                {name: '黑龙江',value: 4882}
+                            ]
+                        }
+                    ]
+                };
+
+
+
+                <!--Input your code here-->
+                //loading data
+                myChart.setOption(option);
+            }
+    );
+</script>
+<div id="figure4scatter" style="height:400px;"></div>
+<script type="text/javascript">
+    require.config({
+        paths:{
+            "echarts":"js/echarts",
+            "echarts/chart/bar":"js/scatter"
+        }
+    });
+
+    //using
+    require(
+            [
+                "echarts",
+                "echarts/chart/scatter"
+            ],
+            function(ec){
+                var myChart=ec.init(document.getElementById("figure4scatter"));
+                <!--Input your code here-->
+                var option = {
+                    title : {
+                        text: '全国近5年各地商品房平均销售价格散点图',
+                        subtext: '（元/平方米）'
+                    },
+                    tooltip : {
+                        trigger: 'item'
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataZoom : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : ['2014','2013','2012','2011','2010']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            scale:true,
+                            axisLabel : {
+                                formatter: '{value}元'
+                            }
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'近5年',
+                            type:'scatter',
+                            data: [[2014, 5131], [2013, 4897], [2012, 4478.02], [2011, 3982.85], [2010, 3539],
+                                [2014, 4734], [2013, 4433], [2012, 3871.38], [2011, 3432.71], [2010, 3487],
+                                [2014, 5373], [2013, 5122], [2012, 4942.01], [2011, 4732.65], [2010, 4505],
+                                [2014, 5112], [2013, 4483], [2012, 4146.7], [2011, 4363.89], [2010, 3647],
+                                [2014, 7006], [2013, 6909], [2012, 6726.78], [2011, 6554.41], [2010, 5841],
+                                [2014, 10526], [2013, 11042], [2012, 10642.58], [2011, 9838.06], [2010, 9258],
+                                [2014, 5394], [2013, 5080], [2012, 4824.95], [2011, 4776.1], [2010, 4205],
+                                [2014, 9136], [2013, 9050], [2012, 8646.05], [2011, 7764.29], [2010, 6256],
+                                [2014, 5288], [2013, 5203], [2012, 4744.66], [2011, 4147.7], [2010, 3144],
+                                [2014, 5315], [2013, 5049], [2012, 4763.01], [2011, 4447.03], [2010, 3944],
+                                [2014, 6134], [2013, 5433], [2012, 5871.38], [2011, 5432.71], [2010, 5487],
+                                [2014, 5173], [2013, 5022], [2012, 4742.01], [2011, 4432.65], [2010, 4505],
+                                [2014, 7112], [2013, 7483], [2012, 7146.7], [2011, 7363.89], [2010, 7647],
+                                [2014, 8006], [2013, 8909], [2012, 8726.78], [2011, 8554.41], [2010, 8841],
+                                [2014, 6526], [2013, 6042], [2012, 6642.58], [2011, 6838.06], [2010, 6258],
+                                [2014, 6394], [2013, 6080], [2012, 6824.95], [2011, 6776.1], [2010, 6205],
+                                [2014, 8136], [2013, 8050], [2012, 8646.05], [2011, 8764.29], [2010, 8256],
+                                [2014, 4288], [2013, 4203], [2012, 4844.66], [2011, 4147.7], [2010, 4144],
+                                [2014, 6315], [2013, 6049], [2012, 6763.01], [2011, 5447.03], [2010, 4944]
+                            ],
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            }
+                        }
+                    ]
+                };
+
+                <!--Input your code here-->
+                //loading data
+                myChart.setOption(option);
+            }
+    );
+</script>
+<div id="figure5pie" style="height:400px;"></div>
+<script type="text/javascript">
+    require.config({
+        paths:{
+            "echarts":"js/echarts",
+            "echarts/chart/bar":"js/pie"
+        }
+    });
+
+    //using
+    require(
+            [
+                "echarts",
+                "echarts/chart/pie"
+            ],
+            function(ec){
+                var myChart=ec.init(document.getElementById("figure5pie"));
+                <!--Input your code here-->
+                var option = {
+                    title : {
+                        text: '商品房价上涨贡献率',
+                        subtext: '%',
+                        x:'center'
+                    },
+                    tooltip : {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    legend: {
+                        orient : 'vertical',
+                        x : 'left',
+                        data:['江苏省','河北省','河南省','广东省','上海市','北京市','天津市','辽宁省','其他']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {
+                                show: true,
+                                type: ['pie', 'funnel'],
+                                option: {
+                                    funnel: {
+                                        x: '25%',
+                                        width: '50%',
+                                        funnelAlign: 'left',
+                                        max: 1548
+                                    }
+                                }
+                            },
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    series : [
+                        {
+                            name:'访问来源',
+                            type:'pie',
+                            radius : '55%',
+                            center: ['50%', '60%'],
+                            data:[
+                                {value:335, name:'江苏省'},
+                                {value:128, name:'河北省'},
+                                {value:109, name:'河南省'},
+                                {value:325, name:'广东省'},
+                                {value:319, name:'上海市'},
+                                {value:334, name:'北京市'},
+                                {value:233, name:'天津市'},
+                                {value:123, name:'辽宁省'},
+                                {value:1548, name:'其他'}
+                            ]
+                        }
+                    ]
+                };
+                <!--Input your code here-->
+                //loading data
+                myChart.setOption(option);
+            }
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!-- 作者：陈云龙 -->
+<!-- 时间：2016-01-31 18:33 -->
+<!DOCTYPE html style="width: 100%; height: 100%">
+<html lang="zh-CN">
+<head>
+	<title>数据新闻</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div id="container" style="width: 100%; height: 100%"></div>
+</body>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script>
+<script type="text/javascript">
+	var dom = document.getElementById("container");
+	var myChart = echarts.init(dom);
+	var app = {};
+	option = null;
+	var base = +new Date(2015, 9, 3);
+	var oneDay = 24 * 3600 * 1000;
+	var date = [];
+	var data = [Math.random() * 150];
+
+	for (var i = 1; i < 100; i++) {
+    	var now = new Date(base += oneDay);
+    	date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-'));
+    	data.push((Math.random() - 0.4) * 20 + data[i - 1]);
+	}
+
+	option = {
+	    title: {
+	        x: 'center',
+	        text: '商品房平均销售价格',
+	    },
+	    legend: {
+	        top: 'bottom',
+	        data:['意向']
+	    },
+	    toolbox: {
+	        show: true,
+	        feature: {
+	            mark: {show: true},
+	            dataView: {show: true, readOnly: false},
+	            magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+	            restore: {show: true},
+	            saveAsImage: {show: true}
+	        }
+	    },
+	    xAxis: [
+	        {
+	            type: 'category',
+	            boundaryGap: false,
+	            data: date
+	        }
+	    ],
+	    yAxis: [
+	        {
+	            type: 'value',
+	            max: 500
+	        }
+	    ],
+	    dataZoom: {
+	        type: 'inside',
+	        start: 60,
+	        end: 80
+	    },
+	    series: [
+	        {
+	            name:'成交',
+	            type:'line',
+	            smooth:true,
+	            symbol: 'none',
+	            stack: 'a',
+	            areaStyle: {
+	                normal: {}
+	            },
+	            data: data
+	        }
+	    ]
+	};
+	if (option && typeof option === "object") {
+		var startTime = +new Date();
+		myChart.setOption(option, true);
+		var endTime = +new Date();
+		var updateTime = endTime - startTime;
+		console.log("Time used:", updateTime);
+	}
+</script>
+</html>
