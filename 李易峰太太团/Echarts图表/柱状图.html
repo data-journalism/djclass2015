@@ -1,0 +1,43 @@
+<!doctype html style="width: 100%; height: 100%"><head><meta charset="utf-8"></head><body style="width: 100%; height: 100%; margin: 0"><div id="container" style="width: 100%; height: 100%"></div><script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script><script type="text/javascript">var dom = document.getElementById("container");var myChart = echarts.init(dom);var app = {};option = null;option = {
+    title : {
+        text: '2013-2014 世界人口总量',
+        subtext: '数据来自中国国家统计局 (by李易峰太太团）'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['2013年', '2014年']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'value',
+            boundaryGap : [0, 0.01]
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            data : ['巴西','印尼','美国','印度','中国','世界人口(万)']
+        }
+    ],
+    series : [
+        {
+            name:'2013年',
+            type:'bar',
+            data:[19875, 23764, 31510, 121019, 135440, 705672]
+        },
+        {
+            name:'2014年',
+            type:'bar',
+            data:[20204, 25287, 32262, 126751, 136407, 724018]
+        },
+    ],
+}
+;if (option && typeof option === "object") {var startTime = +new Date();myChart.setOption(option, true);var endTime = +new Date();var updateTime = endTime - startTime;console.log("Time used:", updateTime);}</script></body></html>

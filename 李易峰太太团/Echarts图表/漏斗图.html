@@ -1,0 +1,75 @@
+<!doctype html style="width: 100%; height: 100%"><head><meta charset="utf-8"></head><body style="width: 100%; height: 100%; margin: 0"><div id="container" style="width: 100%; height: 100%"></div><script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script><script type="text/javascript">var dom = document.getElementById("container");var myChart = echarts.init(dom);var app = {};option = null;option = {
+    title : {
+        text: '交易漏斗图',
+        subtext: '数据纯属虚拟（by李易峰太太团）'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c}%"
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    legend: {
+        data : ['浏览商品','放入购物车','生成订单','支付订单','完成交易']
+    },
+    calculable : true,
+    series : [
+        {
+            name:'漏斗图',
+            type:'funnel',
+            left: '10%',
+            top: 60,
+            //x2: 80,
+            bottom: 60,
+            width: '80%',
+            // height: {totalHeight} - y - y2,
+            min: 0,
+            max: 100,
+            minSize: '0%',
+            maxSize: '100%',
+            sort : 'descending',
+            gap : 2,
+            label: {
+                normal: {
+                    show: true,
+                    position: 'inside'
+                },
+                emphasis: {
+                    textStyle: {
+                        fontSize: 20
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    length: 10,
+                    lineStyle: {
+                        width: 1,
+                        type: 'solid'
+                    }
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: '#fff',
+                    borderWidth: 1
+                }
+            },
+            data:[
+                {value:60, name:'生成订单'},
+                {value:40, name:'支付订单'},
+                {value:20, name:'完成交易'},
+                {value:80, name:'放入购物车'},
+                {value:100, name:'浏览商品'}
+            ]
+        }
+    ]
+};
+;if (option && typeof option === "object") {var startTime = +new Date();myChart.setOption(option, true);var endTime = +new Date();var updateTime = endTime - startTime;console.log("Time used:", updateTime);}</script></body></html>

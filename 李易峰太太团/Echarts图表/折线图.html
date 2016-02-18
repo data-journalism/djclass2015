@@ -1,0 +1,71 @@
+<!doctype html style="width: 100%; height: 100%"><head><meta charset="utf-8"></head><body style="width: 100%; height: 100%; margin: 0"><div id="container" style="width: 100%; height: 100%"></div><script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script><script type="text/javascript">var dom = document.getElementById("container");var myChart = echarts.init(dom);var app = {};option = null;option = {
+    title : {
+        text: '南京一周气温变化',
+        subtext: '数据来自天气预报网（by李易峰太太团）'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['最高气温','最低气温']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            dataZoom: {},
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['2月1日','2月2日','2月3日','2月4日','2月5日','2月6日','2月7日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} °C'
+            }
+        }
+    ],
+    series : [
+        {
+            name:'最高气温',
+            type:'line',
+            data:[2, 5, 7, 7, 9, 7, 11],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'最低气温',
+            type:'line',
+            data:[-4, -4, -3, -2, -2, -3, -2],
+            markPoint : {
+                data : [
+                    {name : '周最低', value : -2, xAxis: 1, yAxis: -4}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+;if (option && typeof option === "object") {var startTime = +new Date();myChart.setOption(option, true);var endTime = +new Date();var updateTime = endTime - startTime;console.log("Time used:", updateTime);}</script></body></html>
