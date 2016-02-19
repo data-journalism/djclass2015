@@ -1,0 +1,47 @@
+<!doctype html style="width: 100%; height: 100%"><head><meta charset="utf-8"></head><body style="width: 100%; height: 100%; margin: 0"><div id="container" style="width: 100%; height: 100%"></div><script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.0.0.js"></script><script type="text/javascript">var dom = document.getElementById("container");var myChart = echarts.init(dom);var app = {};option = null;option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+       
+    },
+    series: [
+        {
+            name:'2017年世界失业人口分布（亿）',
+            type:'pie',
+            selectedMode: 'single',
+            radius: [0, '30%'],
+
+            label: {
+                normal: {
+                    position: 'inner'
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+            
+        
+                {value:1.994, name:'全球失业人口'}
+            ]
+        },
+        {
+            name:'2017年世界失业人口分布（亿）',
+            type:'pie',
+            radius: ['40%', '55%'],
+
+            data:[
+                {value:1.377, name:'新兴国家'},
+                {value:0.156, name:'发展中国家'},
+                {value:0.461, name:'发达国家'},
+            
+            ]
+        }
+    ]
+};;if (option && typeof option === "object") {var startTime = +new Date();myChart.setOption(option, true);var endTime = +new Date();var updateTime = endTime - startTime;console.log("Time used:", updateTime);}</script></body></html>
